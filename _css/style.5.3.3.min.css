@@ -257,3 +257,12 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .main-menu{width:50px;height:50px;border-radius:50%;background-color: rgba(255,255,255,.6);color:#CCCCCC;position:absolute;top:7px;right:10px;line-height:50px;text-align:center;}
 
+.dashboard-index {background-color:rgba(255, 255, 255, .8);margin:0 auto;border-radius:4px;padding:5px;}
+
+.dashboard-index  .link{max-width:280px;min-width:280px;white-space:nowrap;display: inline-block;margin:8px;font-size:16pt;}
+
+.dashboard-index  .link a{white-space:nowrap;display: block;overflow:hidden;text-overflow:ellipsis;color: #777;text-decoration: none;padding:5px 10px 5px 10px;}
+
+.theme-st .dashboard-index  .link{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+
+.theme-st .dashboard-index .link a {color: #B1B1B1;}
