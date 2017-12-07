@@ -255,6 +255,8 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .main-title{color:#B1B1B1;opacity:.3;font-size:300%;white-space:nowrap;margin:0px;padding:0px;text-overflow:ellipsis;overflow:hidden;margin-right:75px;}
 
+.theme-st .content-title{color:#B1B1B1;opacity:.3;font-size:200%;white-space:nowrap;margin:0px;padding:0px;text-overflow:ellipsis;overflow:hidden;}
+
 .theme-st .main-menu{width:50px;height:50px;border-radius:50%;background-color: rgba(255,255,255,.6);color:#CCCCCC;position:absolute;top:7px;right:10px;line-height:50px;text-align:center;}
 
 .dashboard-index {background-color:rgba(255, 255, 255, .8);margin:0 auto;border-radius:4px;padding:5px;}
