@@ -6,7 +6,7 @@ $(document).ready(function () {
 });
 
 function initDynamicContent(container) {
-    initDynamicForm(container);
+    //initDynamicForm(container);
 
     bindDynamicTabs(container);
 
