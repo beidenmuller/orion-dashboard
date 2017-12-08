@@ -241,13 +241,15 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .tile{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
-.theme-st .tiles .tile .title{position: relative;top: 80px;text-align: center;color:#777777;}
+.theme-st .tiles .tile .title{position: relative;top: 85px;text-align: center;color: #777777;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 75%;padding-right: 7px;}
 
-.theme-st tiles .tile i {margin-right: 5px;}
+.theme-st .tiles .tile i {margin-right: 5px;}
 
-.theme-st tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
+.theme-st .tiles .tile .icon {font-size: 3em;line-height: 3em;width: 100%;margin-top: -1.5em;position: absolute;text-align: center;top: 40%;white-space: nowrap;}
 
-.theme-st tiles .tile.active .icon i.active{color:#00f}
+.theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
+
+.theme-st .tiles .tile.active .icon i.active{color:#00f}
 
 .theme-st{color:#B1B1B1;}
 
@@ -267,13 +269,13 @@ body.theme-st{background-color:#1BBEFF;}
 
 .ui-dialog-contain{max-width:75%;}
 
-.theme-st .dashboard-index  .item{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+.theme-st .dashboard-index  .item{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;padding-bottom:0px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
 .dashboard-index .item.active {background-color: #F6F6F6;box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);}
 
 .theme-st .dashboard-index .item a {color: #B1B1B1;}
 
-.theme-st .dashboard-index .item.active a{color:#7DBE63;background-color:#F7F7F7;box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.19);}
+.theme-st .dashboard-index .item.active a{color:#7DBE63;}
 
 .theme-st .ui-dialog{background-color:#FBFBFB !important;}
 
