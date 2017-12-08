@@ -8,7 +8,10 @@ function thermostatEvent(t,e){
 	window[t.data("device")]=setTimeout(function(){animateClick(t),sendCommand(t.attr("data-type"),t.attr("data-device"),"setpoint",i)},500)
 }
 
-function animateClick(t){spinner(t),t.closest(".tile").animate({opacity:.3},fadeOff,"swing").delay(fadeOn).animate({opacity:1},fadeOn,"swing")}
+function animateClick(t){
+	spinner(t);
+	t.closest(".tile").animate({opacity:.3},fadeOff,"swing").delay(fadeOn).animate({opacity:1},fadeOn,"swing");
+}
 
 function spinner(t){t.closest(".tile").find(".spinner").fadeIn("slow").delay(2e3).fadeOut("slow")}
 
@@ -150,33 +153,35 @@ function checkTime(t){return 10>t&&(t="0"+t),t}
 
 var scriptVersion="5.3.0";
 
-$(function(){
-	return $(".tile").append("<i class='spinner fa fa-refresh fa-spin'></i>"),
+function initDashboard(target){
+	var target = target || ".ui-page-active ";
+	
+	return $(target).find(".tile").append("<i class='spinner fa fa-refresh fa-spin'></i>"),
 	setIcons(),
-	$(".refresh, .clock").click(function(){refresh()}),
+	$(target + ".refresh, " + target + ".clock").click(function(){refresh()}),
 	startTime(),
-	$(".dashboard").click(function(t){
+	$(target).find(".dashboard").click(function(t){
 		animateClick($(this)),
 		t.stopImmediatePropagation(),
 		t.preventDefault(),
-		$(".refresh .icon").addClass("fa-spin"),
+		$(target).find(".refresh .icon").addClass("fa-spin"),
 		window.location=$(this).find("a").attr("href")}),
-	$(".history.tile").click(function(t){animateClick($(this)),t.stopImmediatePropagation(),t.preventDefault(),window.location="history"+(getUrlParameter("access_token")?"?access_token="+getUrlParameter("access_token"):"")}),
+	$(target).find(".history.tile").click(function(t){animateClick($(this)),t.stopImmediatePropagation(),t.preventDefault(),window.location="history"+(getUrlParameter("access_token")?"?access_token="+getUrlParameter("access_token"):"")}),
 	
 	readOnlyMode?!1:(
-		$(".switch, .dimmer, .momentary, .clock, .lock, .link, .themeLight, .camera, .music i, .light, .dimmerLight").click(function(){animateClick($(this))}),
+		$(target + ).find(".switch, .dimmer, .momentary, .clock, .lock, .link, .themeLight, .camera, .music i, .light, .dimmerLight").click(function(){animateClick($(this))}),
 	
-		$(".switch, .light, .lock, .momentary, .themeLight, .camera").click(function(){
+		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera").click(function(){
 			$(this).closest(".tile").toggleClass("active"),
 			sendCommand($(this).attr("data-type"),$(this).attr("data-device"),"toggle")
 		}),
 	
-		$(".dimmer, .dimmerLight").click(function(){
+		$(target).find(".dimmer, .dimmerLight").click(function(){
 			$(this).toggleClass("active"),
 			sendCommand($(this).attr("data-type"),$(this).attr("data-device"),"toggle",$(this).attr("data-level"))
 		}),
 	
-		$(".dimmer, .dimmerLight").on("slidestop",function(){
+		$(target).find(".dimmer, .dimmerLight").on("slidestop",function(){
 			var t=$(this).find("input").val();
 			$(this).hasClass("active")&&(animateClick($(this)),
 			sendCommand($(this).attr("data-type"),
@@ -184,39 +189,39 @@ $(function(){
 			$(this).attr("data-level",t)
 		}),
 	
-		$(".music").on("slidestop",function(){
+		$(target).find(".music").on("slidestop",function(){
 			var t=$(this).find("input").val();
 			animateClick($(this)),
 			sendCommand("music",$(this).attr("data-device"),"level",t),
 			$(this).attr("data-level",t)
 		}),
 	
-		$(".music .play").click(function(){var t=$(this).closest(".tile");$(this).closest(".tile").toggleClass("active"),sendCommand("music",t.attr("data-device"),"play")}),
-		$(".music .pause").click(function(){var t=$(this).closest(".tile");$(this).closest(".tile").toggleClass("active"),sendCommand("music",t.attr("data-device"),"pause")}),
-		$(".music .muted").click(function(){var t=$(this).closest(".tile");$(this).closest(".tile").toggleClass("muted"),sendCommand("music",t.attr("data-device"),"unmute")}),
-		$(".music .unmuted").click(function(){var t=$(this).closest(".tile");$(this).closest(".tile").toggleClass("muted"),sendCommand("music",t.attr("data-device"),"mute")}),
-		$(".music .back").click(function(){var t=$(this).closest(".tile");sendCommand("music",t.attr("data-device"),"previousTrack")}),
-		$(".music .forward").click(function(){var t=$(this).closest(".tile");sendCommand("music",t.attr("data-device"),"nextTrack")}),
+		$(target).find(".music .play").click(function(){var t=$(this).closest(".tile");$(this).closest(".tile").toggleClass("active"),sendCommand("music",t.attr("data-device"),"play")}),
+		$(target).find(".music .pause").click(function(){var t=$(this).closest(".tile");$(this).closest(".tile").toggleClass("active"),sendCommand("music",t.attr("data-device"),"pause")}),
+		$(target).find(".music .muted").click(function(){var t=$(this).closest(".tile");$(this).closest(".tile").toggleClass("muted"),sendCommand("music",t.attr("data-device"),"unmute")}),
+		$(target).find(".music .unmuted").click(function(){var t=$(this).closest(".tile");$(this).closest(".tile").toggleClass("muted"),sendCommand("music",t.attr("data-device"),"mute")}),
+		$(target).find(".music .back").click(function(){var t=$(this).closest(".tile");sendCommand("music",t.attr("data-device"),"previousTrack")}),
+		$(target).find(".music .forward").click(function(){var t=$(this).closest(".tile");sendCommand("music",t.attr("data-device"),"nextTrack")}),
 		
-		$(".mode, .hello-home, .thermostat").click(function(){$("#"+$(this).attr("data-popup")).popup("open")}),
-		$("#mode-popup li").click(function(){
-			$("#mode-popup").popup("close");
-			var t=$(".mode");
+		$(target).find(".mode, .hello-home, .thermostat").click(function(){$("#"+$(this).attr("data-popup")).popup("open")}),
+		$(target).find("#mode-popup li").click(function(){
+			$(target).find("#mode-popup").popup("close");
+			var t=$(target).find(".mode");
 			animateClick(t);
 			var e=$(this).text();
 			sendCommand("mode","mode",e);
-			var i=$(".mode").attr("data-mode");
+			var i=$(target).find(".mode").attr("data-mode");
 			t.removeClass(i),
 			t.attr("data-mode",e),
-			["Home","Away","Night"].indexOf(e)>=0?($("#mode-name").hide(),t.addClass(e)):$("#mode-name").html(e).show()
+			["Home","Away","Night"].indexOf(e)>=0?($(target).find("#mode-name").hide(),t.addClass(e)):$(target).find("#mode-name").html(e).show()
 		}),
 		
-		$("#hello-home-popup li").on("click",function(){$("#hello-home-popup").popup("close"),animateClick($(".hello-home")),sendCommand("helloHome","helloHome",$(this).text())}),
+		$(target).find("#hello-home-popup li").on("click",function(){$(target).find("#hello-home-popup").popup("close"),animateClick($(target).find(".hello-home")),sendCommand("helloHome","helloHome",$(this).text())}),
 		
-		$(".thermostatHeat .up, .thermostatCool .up").click(function(){thermostatEvent($(this).closest(".tile"),1)}),
+		$(target).find(".thermostatHeat .up, .thermostatCool .up").click(function(){thermostatEvent($(this).closest(".tile"),1)}),
 		
-		void $(".thermostatHeat .down, .thermostatCool .down").click(function(){thermostatEvent($(this).closest(".tile"),-1)})
+		void $(target).find(".thermostatHeat .down, .thermostatCool .down").click(function(){thermostatEvent($(this).closest(".tile"),-1)})
 	)
-});
+};
 
 var fadeOn=100,fadeOff=200,polling,wtfCloud=!1;nextPoll(30),refresh(3600),CoolClock.config.skins={st:{outerBorder:{lineWidth:12,radius:100,color:"yellow",alpha:0},smallIndicator:{lineWidth:16,startAt:80,endAt:85,color:getClockColor(),alpha:1},largeIndicator:{lineWidth:2,startAt:80,endAt:85,color:getClockColor(),alpha:1},hourHand:{lineWidth:8,startAt:0,endAt:60,color:getClockColor(),alpha:1},minuteHand:{lineWidth:6,startAt:0,endAt:75,color:getClockColor(),alpha:1},secondHand:{lineWidth:5,startAt:80,endAt:85,color:"red",alpha:0},secondDecoration:{lineWidth:3,startAt:96,radius:4,fillColor:getClockColor(),color:"black",alpha:1}},st1:{outerBorder:{lineWidth:2,radius:80,color:getClockColor(),alpha:0},smallIndicator:{lineWidth:5,startAt:88,endAt:94,color:"yellow",alpha:0},largeIndicator:{lineWidth:5,startAt:90,endAt:94,color:getClockColor(),alpha:1},hourHand:{lineWidth:8,startAt:0,endAt:60,color:getClockColor(),alpha:1},minuteHand:{lineWidth:8,startAt:0,endAt:80,color:getClockColor(),alpha:1},secondHand:{lineWidth:5,startAt:89,endAt:94,color:getClockColor(),alpha:1},secondDecoration:{lineWidth:3,startAt:0,radius:4,fillColor:"black",color:"black",alpha:0}}};var cellSize=getUrlParameter("t")||tileSize,cellGutter=getUrlParameter("g")||4;
