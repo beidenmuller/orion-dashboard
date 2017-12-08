@@ -24,7 +24,7 @@ jQuery(document).on(
     }
 );
 
-var wall == null;
+var wall = null;
 
 jQuery(document).on(
     "pagecreate", 
