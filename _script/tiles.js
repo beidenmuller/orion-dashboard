@@ -169,7 +169,7 @@ function initDashboard(target){
 	$(target).find(".history.tile").click(function(t){animateClick($(this)),t.stopImmediatePropagation(),t.preventDefault(),window.location="history"+(getUrlParameter("access_token")?"?access_token="+getUrlParameter("access_token"):"")}),
 	
 	readOnlyMode?!1:(
-		$(target + ).find(".switch, .dimmer, .momentary, .clock, .lock, .link, .themeLight, .camera, .music i, .light, .dimmerLight").click(function(){animateClick($(this))}),
+		$(target).find(".switch, .dimmer, .momentary, .clock, .lock, .link, .themeLight, .camera, .music i, .light, .dimmerLight").click(function(){animateClick($(this))}),
 	
 		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera").click(function(){
 			$(this).closest(".tile").toggleClass("active"),
