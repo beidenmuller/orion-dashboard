@@ -22,6 +22,14 @@ jQuery(document).on(
     }
 );
 
+jQuery(document).on(
+    "pagecreate", 
+    "[data-role='page']", 
+    function(e,ui){				
+        initDashboard($(this));
+    }
+);
+
 
 
 
