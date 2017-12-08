@@ -22,13 +22,47 @@ jQuery(document).on(
     }
 );
 
+var wall == null;
+
 jQuery(document).on(
     "pagecreate", 
     "[data-role='page']", 
     function(e,ui){				
-        initDashboard($(this));
+        initDashboard($(this));		
+		wall = new freewall($(this).find(".tiles"));
+		refreshWall();
     }
 );
+
+jQuery(document).on("pageshow","[data-role='page']", function(e,ui){
+  refreshWall();
+});
+
+function refreshWall(){
+	if(wall == null){
+		wall = new freewall(".tiles");
+	} 
+		
+	wall.fitWidth();
+
+	wall.reset({
+		draggable: false,
+		selector: ".tile",
+		animate: true,
+		gutterX:cellGutter,
+		gutterY:cellGutter,
+		cellW:cellSize,
+		cellH:cellSize,
+		fixSize:null,
+		onResize: function() {
+			wall.fitWidth();
+			wall.refresh();
+		}
+	}).fitWidth();
+	
+	// for scroll bar appear;
+	jQuery(window).trigger("resize");
+}
 
 
 
