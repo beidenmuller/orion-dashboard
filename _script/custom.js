@@ -19,6 +19,8 @@ jQuery(document).on(
 
             d.off("click", dlgClickOffClose).on("click", dlgClickOffClose);
         }
+		
+		refreshWall();
     }
 );
 
