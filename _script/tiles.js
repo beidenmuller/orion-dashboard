@@ -158,7 +158,8 @@ function initDashboard(target){
 	
 	return $(target).find(".tile").append("<i class='spinner fa fa-refresh fa-spin'></i>"),
 	setIcons(),
-	$(target + ".refresh, " + target + ".clock").click(function(){refresh()}),
+	$(target).find(".refresh").click(function(){refresh()}),
+	$(target).find(".clock").click(function(){refresh()}),
 	startTime(),
 	$(target).find(".dashboard").click(function(t){
 		animateClick($(this)),
