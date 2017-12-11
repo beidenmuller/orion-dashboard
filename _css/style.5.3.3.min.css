@@ -265,13 +265,15 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .main-menu{width:50px;height:50px;border-radius:50%;background-color: rgba(255,255,255,.6);color:#CCCCCC !important;position:absolute;top:7px;right:10px;line-height:50px;text-align:center;}
 
+.ui-dialog-contain .dashboard-index{max-width: 565px;}
+
 .dashboard-index {background-color:rgba(255, 255, 255, .8);margin:0 auto;border-radius:4px;padding:5px;}
 
-.dashboard-index  .item{max-width:280px;min-width:280px;white-space:nowrap;display: inline-block;margin:8px;font-size:16pt;}
+.dashboard-index  .item{max-width:250px;min-width:250px;white-space:nowrap;display: inline-block;margin:8px;font-size:16pt;}
 
 .dashboard-index  .item a{white-space:nowrap;display: inline-block;overflow:hidden;text-overflow:ellipsis;color: #777;text-decoration: none;padding:5px 10px 5px 10px;}
 
-.ui-dialog-contain{max-width:630px;}
+.ui-dialog-contain{max-width: 630px;text-align: center;}
 
 .theme-st .dashboard-index  .item{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;padding-bottom:0px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
