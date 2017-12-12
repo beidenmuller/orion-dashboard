@@ -15,33 +15,33 @@ function animateClick(t){
 
 function spinner(t){t.closest(".tile").find(".spinner").fadeIn("slow").delay(2e3).fadeOut("slow")}
 
-function setIcons(){
-	$(".switch").append("<div class='icon'>"+icons["switch"].on+icons["switch"].off+"</div>"),
-	$(".dimmer").append("<div class='icon'>"+icons.dimmer.on+icons.dimmer.off+"</div>"),
-	$(".light").append("<div class='icon'>"+icons.light.on+icons.light.off+"</div>"),
-	$(".dimmerLight").append("<div class='icon'>"+icons.light.on+icons.light.off+"</div>"),
-	$(".themeLight").append("<div class='icon'>"+icons.themeLight.on+icons.themeLight.off+"</div>"),
-	$(".lock").append("<div class='icon'>"+icons.lock.locked+icons.lock.unlocked+"</div>"),
-	$(".motion").append("<div class='icon'>"+icons.motion.active+icons.motion.inactive+"</div>"),
-	$(".acceleration").append("<div class='icon'>"+icons.acceleration.active+icons.acceleration.inactive+"</div>"),
-	$(".presence").append("<div class='icon'>"+icons.presence.present+icons.presence.notPresent+"</div>"),
-	$(".contact").append("<div class='icon'>"+icons.contact.open+icons.contact.closed+"</div>"),
-	$(".water").append("<div class='icon'>"+icons.water.dry+icons.water.wet+"</div>"),
-	$(".dimmer, .dimmerLight, .music").each(function(){renderSlider($(this))}),
-	$(".momentary").append("<div class='icon'>"+icons.momentary+"</div>"),
-	$(".camera").append("<div class='icon'>"+icons.camera+"</div>"),
-	$(".refresh").append("<div class='icon'>"+icons.refresh+"</div>"),
-	$(".history").append("<div class='icon'>"+icons.history+"</div>"),
-	$(".hello-home").append("<div class='icon'>"+icons["hello-home"]+"</div>"),
-	$(".humidity").append("<div class='footer'>"+icons.humidity+"</div>"),
-	$(".luminosity").append("<div class='footer'>"+icons.luminosity+"</div>"),
-	$(".temperature").append("<div class='footer'>"+icons.temperature+"</div>"),
-	$(".energy").append("<div class='footer'>"+icons.energy+"</div>"),
-	$(".power").append("<div class='footer'>"+icons.power+"</div>"),
-	$(".battery").append("<div class='footer'>"+icons.battery+"</div>"),
-	$(".link").find("a").html(icons.link),
-	$(".dashboard").find("a").html(icons.dashboard),
-	$(".tile[data-is-value=true]").each(function(){renderValue($(this))}
+function setIcons(target){
+	$(target).find(".switch").append("<div class='icon'>"+icons["switch"].on+icons["switch"].off+"</div>"),
+	$(target).find(".dimmer").append("<div class='icon'>"+icons.dimmer.on+icons.dimmer.off+"</div>"),
+	$(target).find(".light").append("<div class='icon'>"+icons.light.on+icons.light.off+"</div>"),
+	$(target).find(".dimmerLight").append("<div class='icon'>"+icons.light.on+icons.light.off+"</div>"),
+	$(target).find(".themeLight").append("<div class='icon'>"+icons.themeLight.on+icons.themeLight.off+"</div>"),
+	$(target).find(".lock").append("<div class='icon'>"+icons.lock.locked+icons.lock.unlocked+"</div>"),
+	$(target).find(".motion").append("<div class='icon'>"+icons.motion.active+icons.motion.inactive+"</div>"),
+	$(target).find(".acceleration").append("<div class='icon'>"+icons.acceleration.active+icons.acceleration.inactive+"</div>"),
+	$(target).find(".presence").append("<div class='icon'>"+icons.presence.present+icons.presence.notPresent+"</div>"),
+	$(target).find(".contact").append("<div class='icon'>"+icons.contact.open+icons.contact.closed+"</div>"),
+	$(target).find(".water").append("<div class='icon'>"+icons.water.dry+icons.water.wet+"</div>"),
+	$(target).find(".dimmer, .dimmerLight, .music").each(function(){renderSlider($(this))}),
+	$(target).find(".momentary").append("<div class='icon'>"+icons.momentary+"</div>"),
+	$(target).find(".camera").append("<div class='icon'>"+icons.camera+"</div>"),
+	$(target).find(".refresh").append("<div class='icon'>"+icons.refresh+"</div>"),
+	$(target).find(".history").append("<div class='icon'>"+icons.history+"</div>"),
+	$(target).find(".hello-home").append("<div class='icon'>"+icons["hello-home"]+"</div>"),
+	$(target).find(".humidity").append("<div class='footer'>"+icons.humidity+"</div>"),
+	$(target).find(".luminosity").append("<div class='footer'>"+icons.luminosity+"</div>"),
+	$(target).find(".temperature").append("<div class='footer'>"+icons.temperature+"</div>"),
+	$(target).find(".energy").append("<div class='footer'>"+icons.energy+"</div>"),
+	$(target).find(".power").append("<div class='footer'>"+icons.power+"</div>"),
+	$(target).find(".battery").append("<div class='footer'>"+icons.battery+"</div>"),
+	$(target).find(".link").find("a").html(icons.link),
+	$(target).find(".dashboard").find("a").html(icons.dashboard),
+	$(target).find(".tile[data-is-value=true]").each(function(){renderValue($(this))}
 )}
 
 function renderSlider(t){
@@ -157,7 +157,7 @@ function initDashboard(target){
 	var target = target || ".ui-page-active ";
 	
 	return $(target).find(".tile").append("<i class='spinner fa fa-refresh fa-spin'></i>"),
-	setIcons(),
+	setIcons(target),
 	$(target).find(".refresh").click(function(){refresh()}),
 	$(target).find(".clock").click(function(){refresh()}),
 	startTime(),
