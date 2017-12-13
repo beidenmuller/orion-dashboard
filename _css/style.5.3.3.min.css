@@ -96,7 +96,7 @@
 
 .title{font-size:.9em;line-height:1em;height:2em;overflow:ellipsis;position:absolute;top:2px;left:4px}
 
-.title2{font-size:12px;line-height:1em;height:2em;overflow:ellipsis;position:absolute;top:15px;left:4px}
+.title2{font-size:12px;line-height:1em;height:2em;overflow:ellipsis;position:absolute;top:15px;left:4px;}
 
 .tile.active .icon i.inactive,.tile:not(.active) .icon i.active{display:none}
 .tile.inactive .icon i.inactive{opacity:.3}
@@ -277,7 +277,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .ui-dialog-contain{max-width: 630px;text-align: center;}
 
-.theme-st .dashboard-index  .item{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;padding-bottom:0px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+.theme-st .dashboard-index .item{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;padding-bottom:0px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
 .dashboard-index .item.active {background-color: #F6F6F6;box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);}
 
