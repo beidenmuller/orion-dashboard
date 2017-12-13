@@ -295,9 +295,11 @@ body.theme-st{background-color:#1BBEFF;}
 
 .device-detail .tiles{text-align: left;}
 
-.device-detail .tiles .tile{display: inline-block; position: relative;margin:5px;}
+.device-detail .tiles .tile{display: inline-block; position: relative;margin:5px 5px 5px 0px;}
 
-.device-detail .tiles .tile.large {width: 100% !important;clear: both;display: block;position: relative;}
+.device-detail .tiles .tile.blank{display: none;}
+
+.device-detail .tiles .tile.large {width: 100% !important;clear: both;display: block;position: relative;margin: 0px;}
 
 /* Freewall */
 
