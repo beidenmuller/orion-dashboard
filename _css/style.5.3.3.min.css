@@ -245,7 +245,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .tile{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
-.theme-st .tiles .tile .title{position: relative;top: 85px;text-align: center;color: #777777;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 75%;padding-right: 7px;}
+.theme-st .tiles .tile .title{position: relative;top: 75px;text-align: center;color: #777777;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 75%;padding-right: 7px;}
 
 .theme-st .tiles .tile i {margin-right: 5px;}
 
