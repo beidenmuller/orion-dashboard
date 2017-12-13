@@ -58,7 +58,7 @@
 
 .thermostatCool{background-color:#60C}
 
-.tile{border-radius:2px;color:#fff}
+.tile{border-radius:2px;color:#fff;-webkit-user-select: none; /* Safari */-moz-user-select: none; /* Firefox */-ms-user-select: none; /* IE10+/Edge */user-select: none; /* Standard */}
 
 .tiles{overflow:hidden;margin:2px}
 
