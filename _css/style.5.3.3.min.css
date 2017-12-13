@@ -96,7 +96,7 @@
 
 .title{font-size:.9em;line-height:1em;height:2em;overflow:ellipsis;position:absolute;top:2px;left:4px}
 
-.title2{font-size:12px}
+.title2{font-size:12px;line-height:1em;height:2em;overflow:ellipsis;position:absolute;top:15px;left:4px}
 
 .tile.active .icon i.inactive,.tile:not(.active) .icon i.active{display:none}
 .tile.inactive .icon i.inactive{opacity:.3}
@@ -250,6 +250,8 @@ body.theme-st{background-color:#1BBEFF;}
 .theme-st .tiles .tile i {margin-right: 5px;}
 
 .theme-st .tiles .tile .icon {font-size: 3em;line-height: 3em;width: 100%;margin-top: -1.5em;position: absolute;text-align: center;top: 40%;white-space: nowrap;}
+
+.theme-st .tiles .tile .title2{font-size:12px;line-height:1em;height:2em;overflow:ellipsis;position:absolute;text-align: center;top:2px;left:0px}
 
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
