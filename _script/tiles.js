@@ -191,7 +191,7 @@ function initDashboard(target){
 					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
 				}
 			}
-		});
+		}),
 	
 		$(target).find(".dimmer, .dimmerLight").clickAndHold({
 			holdThreshold: 750, 
@@ -210,7 +210,7 @@ function initDashboard(target){
 					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
 				}
 			}
-		});
+		}),
 	
 		$(target).find(".dimmer, .dimmerLight").on("slidestop",function(){
 			var t=$(this).find("input").val();
