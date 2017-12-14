@@ -452,10 +452,9 @@ jQuery.fn.clickAndHold = function(options) {
 				}, holdThreshold);
 			} else {
 				//vmouseup or mouseup
-				clearTimeout(tapTimer);    
-
 				//if the flag is set to false then this is a `tap` event
 				if (!isTapHold) {
+					clearTimeout(tapTimer);   
 					if (typeof onClick == "function") { onClick.call(this); }
 				}
 
