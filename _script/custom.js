@@ -5,12 +5,24 @@ jQuery(document).on(
     function(e,ui){				
         //.ui-page-active
 
-        jQuery(document).one("dialogcreate", enableCloseOnFocusOut);
+        jQuery(document).one("dialogcreate", setupDialog);
 
         function dlgClickOffClose(e,ui){ jQuery(e.target).dialog("close"); }
 
         function stopPropagation(e,ui){ e.stopPropagation(); }
-
+	
+    	function setupDialog(e,ui){
+		enableCloseOnFocusOut(e,ui);
+		
+		//initialize tiles
+		var d = jQuery(e.target);
+            	var det = d.find(".ui-dialog-contain .device-detail");
+		
+		if(det.length){
+			initDashboard(det);
+		}
+	}
+	    
         function enableCloseOnFocusOut(e,ui){
             var d = jQuery(e.target);
             var c = d.find(".ui-dialog-contain");
@@ -20,7 +32,7 @@ jQuery(document).on(
             d.off("click", dlgClickOffClose).on("click", dlgClickOffClose);
         }
 		
-		refreshWall();
+	refreshWall();
     }
 );
 
@@ -31,8 +43,12 @@ jQuery(document).on(
     "[data-role='page']", 
     function(e,ui){				
         initDashboard($(this));		
-		wall = new freewall($(this).find(".tiles"));
-		refreshWall();
+	wall = new freewall($(this).find(".tiles"));
+	refreshWall();
+    
+	var ath = addToHomescreen({ autostart: false });
+	ath.clearSession(); 
+	ath.show(); 
     }
 );
 
@@ -65,9 +81,6 @@ function refreshWall(){
 	// for scroll bar appear;
 	jQuery(window).trigger("resize");
 }
-
-
-
 
 //$(document).ready(function () {
     //bindDynamicTabs();
