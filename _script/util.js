@@ -445,8 +445,7 @@ jQuery.fn.clickAndHold = function(options) {
 		if (event.type.indexOf("mousedown") > -1) {
 			tapTimer = setTimeout(function () { 
 				isTapHold = true; 
-				if (typeof onHold == "function") { onHold.call(this); }
-				isTapHold = false;
+				if (typeof onHold == "function") { onHold.call(el); }
 			}, holdThreshold);
 		} else {
 			//vmouseup or mouseup
