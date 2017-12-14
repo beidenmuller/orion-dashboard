@@ -173,7 +173,21 @@ function initDashboard(target){
 	
 	readOnlyMode?!1:(
 		$(target).find(".switch, .dimmer, .momentary, .clock, .lock, .link, .themeLight, .camera, .music i, .light, .dimmerLight").click(function(){animateClick($(this))}),
-	
+		
+		$(target).find(".contact").clickAndHold({
+			holdThreshold: 750, 
+			onClick: function(){},
+			onHold: function(){ 
+				var el = jQuery(this);                
+				var deviceId = el.attr("data-device");
+				var deviceType = el.attr("data-type");
+
+				if(deviceId){
+					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
+				}
+			}
+		}),
+		
 		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera").clickAndHold({
 			holdThreshold: 750, 
 			onClick: function(){ 
