@@ -188,7 +188,7 @@ function initDashboard(target){
 				var deviceType = el.attr("data-type");
 
 				if(deviceId){
-					jQuery.mobile.changePage( "${generateURL("detail").join()}", { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
+					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
 				}
 			}
 		});
@@ -207,7 +207,7 @@ function initDashboard(target){
 				var deviceType = el.attr("data-type");
 
 				if(deviceId){
-					jQuery.mobile.changePage( "${generateURL("detail").join()}", { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
+					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
 				}
 			}
 		});
