@@ -45,6 +45,10 @@ jQuery(document).on(
         initDashboard($(this));		
 	wall = new freewall($(this).find(".tiles"));
 	refreshWall();
+    
+	var ath = addToHomescreen({ autostart: false });
+	ath.clearSession(); 
+	ath.show(); 
     }
 );
 
@@ -77,9 +81,6 @@ function refreshWall(){
 	// for scroll bar appear;
 	jQuery(window).trigger("resize");
 }
-
-
-
 
 //$(document).ready(function () {
     //bindDynamicTabs();
