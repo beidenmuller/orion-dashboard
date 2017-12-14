@@ -439,24 +439,27 @@ jQuery.fn.clickAndHold = function(options) {
 	var onClick = options.onClick || null;
 	var onHold = options.onHold || null;
 	
-	var el = $(this);
+	var els = $(this);
 	
-	el.on("vmousedown vmouseup mousedown mouseup", function (event, data) {
-		if (event.type.indexOf("mousedown") > -1) {
-			tapTimer = setTimeout(function () { 
-				isTapHold = true; 
-				if (typeof onHold == "function") { onHold.call(el); }
-			}, holdThreshold);
-		} else {
-			//vmouseup or mouseup
-			clearTimeout(tapTimer);    
+	return els.each(function (index, item) {
+		var el = $(item);
+		el.on("vmousedown vmouseup mousedown mouseup", function (event, data) {
+			if (event.type.indexOf("mousedown") > -1) {
+				tapTimer = setTimeout(function () { 
+					isTapHold = true; 
+					if (typeof onHold == "function") { onHold.call(el); }
+				}, holdThreshold);
+			} else {
+				//vmouseup or mouseup
+				clearTimeout(tapTimer);    
 
-			//if the flag is set to false then this is a `tap` event
-			if (!isTapHold) {
-				if (typeof onClick == "function") { onClick.call(this); }
+				//if the flag is set to false then this is a `tap` event
+				if (!isTapHold) {
+					if (typeof onClick == "function") { onClick.call(this); }
+				}
+
+				isTapHold = false;
 			}
-			
-			isTapHold = false;
-		}
+		});
 	});
 }
