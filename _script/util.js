@@ -429,10 +429,7 @@ function addOrdinalSuffix(number){
     return String(number) + suffix;
 }
 
-jQuery.fn.clickAndHold = function(options) {
-	var tapTimer;
-	var isTapHold = false;
-	
+jQuery.fn.clickAndHold = function(options) {	
 	var options = options || {};
 	
 	var holdThreshold = options.holdThreshold || 750;
@@ -443,6 +440,10 @@ jQuery.fn.clickAndHold = function(options) {
 	
 	return els.each(function (index, item) {
 		var el = $(item);
+		
+		var tapTimer;
+		var isTapHold = false;
+		
 		el.on("vmousedown vmouseup mousedown mouseup", function (event, data) {
 			if (event.type.indexOf("mousedown") > -1) {
 				tapTimer = setTimeout(function () { 
