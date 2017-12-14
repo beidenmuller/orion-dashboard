@@ -166,21 +166,51 @@ function initDashboard(target){
 		t.stopImmediatePropagation(),
 		t.preventDefault(),
 		$(target).find(".refresh .icon").addClass("fa-spin"),
-		window.location=$(this).find("a").attr("href")}),
+		window.location=$(this).find("a").attr("href")
+	}),
+	
 	$(target).find(".history.tile").click(function(t){animateClick($(this)),t.stopImmediatePropagation(),t.preventDefault(),window.location="history"+(getUrlParameter("access_token")?"?access_token="+getUrlParameter("access_token"):"")}),
 	
 	readOnlyMode?!1:(
 		$(target).find(".switch, .dimmer, .momentary, .clock, .lock, .link, .themeLight, .camera, .music i, .light, .dimmerLight").click(function(){animateClick($(this))}),
 	
-		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera").click(function(){
-			$(this).closest(".tile").toggleClass("active"),
-			sendCommand($(this).attr("data-type"),$(this).attr("data-device"),"toggle")
-		}),
+		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera").clickAndHold({
+			holdThreshold: 750, 
+			onClick: function(){ 
+				var el = jQuery(this);  
+				
+				el.closest(".tile").toggleClass("active");
+				sendCommand(el.attr("data-type"),el.attr("data-device"),"toggle");
+			},
+			onHold: function(){ 
+				var el = jQuery(this);                
+				var deviceId = el.attr("data-device");
+				var deviceType = el.attr("data-type");
+
+				if(deviceId){
+					jQuery.mobile.changePage( "${generateURL("detail").join()}", { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
+				}
+			}
+		});
 	
-		$(target).find(".dimmer, .dimmerLight").click(function(){
-			$(this).toggleClass("active"),
-			sendCommand($(this).attr("data-type"),$(this).attr("data-device"),"toggle",$(this).attr("data-level"))
-		}),
+		$(target).find(".dimmer, .dimmerLight").clickAndHold({
+			holdThreshold: 750, 
+			onClick: function(){ 
+				var el = jQuery(this);  
+				
+				el.toggleClass("active");
+				sendCommand(el.attr("data-type"),el.attr("data-device"),"toggle",el.attr("data-level"));
+			},
+			onHold: function(){ 
+				var el = jQuery(this);                
+				var deviceId = el.attr("data-device");
+				var deviceType = el.attr("data-type");
+
+				if(deviceId){
+					jQuery.mobile.changePage( "${generateURL("detail").join()}", { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
+				}
+			}
+		});
 	
 		$(target).find(".dimmer, .dimmerLight").on("slidestop",function(){
 			var t=$(this).find("input").val();
