@@ -477,12 +477,12 @@ jQuery.fn.clickAndHold = function(options) {
 		console.log(event.type);
 		console.log(event);
 		els.each(function (index, item) {
-		var el = jQuery(item);
+			var el = jQuery(item);
 
-		clearTimeout(tapTimer);
+			clearTimeout(tapTimer);
 
-		el.data("tap-hold", false);
-		el.data("tap-down", false);
+			el.data("tap-hold", false);
+			el.data("tap-down", false);
 		});
 	}
 	
