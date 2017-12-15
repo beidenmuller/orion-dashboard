@@ -444,9 +444,10 @@ jQuery.fn.clickAndHold = function(options) {
 		var tapTimer;
 		var isTapHold = false;
 		
-		el.on("vmousedown vmouseup mousedown mouseup", function (event, data) {
+		el.on("vmousedown vmouseup", function (event, data) {
+			event.stopImmediatePropagation();
 			console.log(event.type);
-			if (event.type.indexOf("mousedown") > -1) {
+			if (event.type.toLowerCase().indexOf("mousedown") > -1) {
 				tapTimer = setTimeout(function () { 
 					isTapHold = true; 
 					if (typeof onHold == "function") { onHold.call(el); }
