@@ -275,9 +275,9 @@ body.theme-st{background-color:#1BBEFF;}
 
 .dashboard-index {background-color:rgba(255, 255, 255, .8);margin:0 auto;border-radius:4px;padding:5px;}
 
-.dashboard-index  .item{max-width:250px;min-width:250px;white-space:nowrap;display: inline-block;margin:8px;font-size:16pt;text-align:left;}
+.dashboard-index .item{max-width:250px;min-width:250px;white-space:nowrap;display: inline-block;margin:8px;font-size:16pt;text-align:left;}
 
-.dashboard-index  .item a{white-space:nowrap;display: inline-block;overflow:hidden;text-overflow:ellipsis;color: #777;text-decoration: none;padding:5px 10px 5px 10px;text-align:left;}
+.dashboard-index .item a{white-space:nowrap;display: inline-block;overflow:hidden;text-overflow:ellipsis;color: #777;text-decoration: none;padding:5px 10px 5px 10px;text-align:left;width: 100%;}
 
 .ui-dialog-contain{max-width: 630px;text-align: center;}
 
