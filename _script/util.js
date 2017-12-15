@@ -437,20 +437,7 @@ jQuery.fn.clickAndHold = function(options) {
 	var onHold = options.onHold || null;
 	
 	var tapTimer;
-  
-	var els = jQuery(this);
-	els.each(function (index, item) {
-		var el = jQuery(item);    
-		var isTapHold = false;
-  
-		el.on("vmousedown mousedown", mDown);
-		el.on("vmouseup mouseup", mUp);
-	});
-  
-	jQuery(document).on("vmouseup mouseup", gUp);
-  
-	return els;
-  
+	
 	var mDown = function(event, data){
 		console.log(event.type);
 		console.log(event);
@@ -498,4 +485,17 @@ jQuery.fn.clickAndHold = function(options) {
 		el.data("tap-down", false);
 		});
 	}
+  
+	var els = $(this);
+	els.each(function (index, item) {
+		var el = $(item);    
+		var isTapHold = false;
+  
+		el.on("vmousedown mousedown", mDown);
+		el.on("vmouseup mouseup", mUp);
+	});
+  
+	jQuery(document).off("vmouseup mouseup", gUp).on("vmouseup mouseup", gUp);
+  
+	return els;
 }
