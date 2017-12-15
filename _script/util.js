@@ -445,6 +445,7 @@ jQuery.fn.clickAndHold = function(options) {
 		var isTapHold = false;
 		
 		el.on("vmousedown vmouseup mousedown mouseup", function (event, data) {
+			console.log(event.type);
 			if (event.type.indexOf("mousedown") > -1) {
 				tapTimer = setTimeout(function () { 
 					isTapHold = true; 
