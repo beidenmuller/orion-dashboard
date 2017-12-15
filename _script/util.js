@@ -466,6 +466,6 @@ jQuery.fn.clickAndHold = function(options) {
 
 				isTapHold = false;				
 			}
-		}
+		});
 	});
 }
