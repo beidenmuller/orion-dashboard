@@ -491,11 +491,11 @@ jQuery.fn.clickAndHold = function(options) {
 		var el = $(item);    
 		var isTapHold = false;
   
-		el.on("vmousedown mousedown", mDown);
-		el.on("vmouseup mouseup", mUp);
+		el.on("vmousedown", mDown);
+		el.on("vmouseup", mUp);
 	});
   
-	jQuery(document).off("vmouseup mouseup", gUp).on("vmouseup mouseup", gUp);
+	jQuery(document).off("vmouseup", gUp).on("vmouseup", gUp);
   
 	return els;
 }
