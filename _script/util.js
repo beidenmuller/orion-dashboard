@@ -461,10 +461,10 @@ jQuery.fn.clickAndHold = function(options) {
 			clearTimeout(tapTimer); 
 			var el = jQuery(event.currentTarget);
         
-			var hasTapDown = el.data("tap-down") || false;
-			var hasTapHold = el.data("tap-hold") || false;
+			var hasTapDown = cBool(el.data("tap-down") || false);
+			var hasTapHold = cBool(el.data("tap-hold") || false);
       
-			if (!hasTapHold) {           
+			if (hasTapHold == false && hasTapDown == true) {           
 				if (typeof onClick == "function") { onClick.call(this); }
 			}
 
@@ -484,6 +484,12 @@ jQuery.fn.clickAndHold = function(options) {
 		el.data("tap-hold", false);
 		el.data("tap-down", false);
 		});
+	}
+	
+	var cBool = function(val){
+		val = String(val).toLowerCase();
+		
+		return val == "true";
 	}
   
 	var els = $(this);
