@@ -439,8 +439,8 @@ jQuery.fn.clickAndHold = function(options) {
 	var tapTimer;
 	
 	var mDown = function(event, data){
-		console.log(event.type);
-		console.log(event);
+		//console.log(event.type);
+		//console.log(event);
 		if (event.type.indexOf("mousedown") > -1) {
 			var el = jQuery(event.currentTarget);
       
@@ -455,8 +455,8 @@ jQuery.fn.clickAndHold = function(options) {
   
 	var mUp = function(event, data){
 		event.stopPropagation();
-		console.log(event.type);
-		console.log(event);
+		//console.log(event.type);
+		//console.log(event);
 		if (event.type.indexOf("mouseup") > -1) {
 			clearTimeout(tapTimer); 
 			var el = jQuery(event.currentTarget);
@@ -474,8 +474,8 @@ jQuery.fn.clickAndHold = function(options) {
 	}
   
 	var gUp = function(event, data){
-		console.log(event.type);
-		console.log(event);
+		//console.log(event.type);
+		//console.log(event);
 		els.each(function (index, item) {
 			var el = jQuery(item);
 
