@@ -429,43 +429,73 @@ function addOrdinalSuffix(number){
     return String(number) + suffix;
 }
 
-jQuery.fn.clickAndHold = function(options) {	
+jQuery.fn.clickAndHold = function(options) {		
 	var options = options || {};
 	
 	var holdThreshold = options.holdThreshold || 750;
 	var onClick = options.onClick || null;
 	var onHold = options.onHold || null;
 	
-	var els = $(this);
-	
-	return els.each(function (index, item) {
-		var el = $(item);
-		
-		var tapTimer;
+	var tapTimer;
+  
+	var els = jQuery(this);
+	els.each(function (index, item) {
+		var el = jQuery(item);    
 		var isTapHold = false;
-		
-		el.on("vmousedown", function (event, data) {
-			console.log(event.type);
-			if (event.type.toLowerCase().indexOf("mousedown") > -1) {
-				tapTimer = setTimeout(function () { 
-					isTapHold = true; 
-					if (typeof onHold == "function") { onHold.call(el); }
-				}, holdThreshold);
-			}
-		});
-		
-		$(document).on("vmouseup", function(event, data) {
-			console.log(event.type);
-			if (event.type.toLowerCase().indexOf("mouseup") > -1) {
-				//vmouseup or mouseup
-				//if the flag is set to false then this is a 'tap' event
-				if (!isTapHold) {
-					clearTimeout(tapTimer);   
-					if (typeof onClick == "function") { onClick.call(this); }
-				}
-
-				isTapHold = false;				
-			}
-		});
+  
+		el.on("vmousedown mousedown", mDown);
+		el.on("vmouseup mouseup", mUp);
 	});
+  
+	jQuery(document).on("vmouseup mouseup", gUp);
+  
+	return els;
+  
+	var mDown = function(event, data){
+		console.log(event.type);
+		console.log(event);
+		if (event.type.indexOf("mousedown") > -1) {
+			var el = jQuery(event.currentTarget);
+      
+			el.data("tap-down", true);
+      
+			tapTimer = setTimeout(function () { 
+				el.data("tap-hold", true);
+				if (typeof onHold == "function") { onHold.call(el); }
+			}, holdThreshold);
+		} 
+	}
+  
+	var mUp = function(event, data){
+		event.stopPropagation();
+		console.log(event.type);
+		console.log(event);
+		if (event.type.indexOf("mouseup") > -1) {
+			clearTimeout(tapTimer); 
+			var el = jQuery(event.currentTarget);
+        
+			var hasTapDown = el.data("tap-down") || false;
+			var hasTapHold = el.data("tap-hold") || false;
+      
+			if (!hasTapHold) {           
+				if (typeof onClick == "function") { onClick.call(this); }
+			}
+
+			el.data("tap-hold", false);
+			el.data("tap-down", false);
+		}
+	}
+  
+	var gUp = function(event, data){
+		console.log(event.type);
+		console.log(event);
+		els.each(function (index, item) {
+		var el = jQuery(item);
+
+		clearTimeout(tapTimer);
+
+		el.data("tap-hold", false);
+		el.data("tap-down", false);
+		});
+	}
 }
