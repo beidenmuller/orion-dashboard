@@ -41,14 +41,20 @@ var wall = null;
 jQuery(document).on(
     "pagecreate", 
     "[data-role='page']", 
-    function(e,ui){				
-        initDashboard($(this));		
+    function(e,ui){ 
+	var editMode = getUrlParameter("editMode");
+	    
+	initDashboard($(this));		
 	wall = new freewall($(this).find(".tiles"));
 	refreshWall();
-    
-	var ath = addToHomescreen({ autostart: false });
-	ath.clearSession(); 
-	ath.show(); 
+	
+    	if(editMode == "true") {
+		wall.addConfig({ draggable: true });
+	} else {
+		var ath = addToHomescreen({ autostart: false });
+		ath.clearSession(); 
+		ath.show(); 
+	}
     }
 );
 
