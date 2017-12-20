@@ -43,20 +43,19 @@ jQuery(document).on(
     "[data-role='page']", 
     function(e,ui){ 
 	var editMode = getUrlParameter("editMode");
+		    
+	initDashboard($(this));	
 	    
-	initDashboard($(this));		
-	wall = new freewall($(this).find(".tiles"));
-	refreshWall();
-	
     	if(editMode == "true") {
-		jQuery(".tile").off("vmouseup vmousedown click");
-		
-		wall.addConfig({ draggable: true });		
+		jQuery(".tile").off("vmouseup vmousedown click");		
 	} else {
 		var ath = addToHomescreen({ autostart: false });
 		ath.clearSession(); 
 		ath.show(); 
 	}
+	    
+	wall = new freewall($(this).find(".tiles"));
+	refreshWall((editMode == "true"));
     }
 );
 
@@ -64,7 +63,7 @@ jQuery(document).on("pageshow","[data-role='page']", function(e,ui){
   refreshWall();
 });
 
-function refreshWall(){
+function refreshWall(isDraggable){
 	if(wall == null){
 		wall = new freewall(".tiles");
 	} 
@@ -72,7 +71,7 @@ function refreshWall(){
 	wall.fitWidth();
 
 	wall.reset({
-		draggable: false,
+		draggable: (isDraggable || false),
 		selector: ".tile",
 		animate: true,
 		gutterX:cellGutter,
