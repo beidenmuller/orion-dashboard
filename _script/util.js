@@ -505,3 +505,79 @@ jQuery.fn.clickAndHold = function(options) {
   
 	return els;
 }
+
+function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) {
+	var sParameterName = sURLVariables[i].split('=');
+	if (sParameterName[0] == sParam) 
+	{
+	    return sParameterName[1];
+	}
+    }
+}
+
+function changeOrder() {
+    var l = "";
+    $( ".list li" ).each(function(index) {
+	l = l + $(this).data("type") + "-" + $(this).data("device") + "|~|";
+    });
+	
+    var access_token = getUrlParameter("access_token");
+    var request = {list: l};
+    if (access_token) request["access_token"] = access_token;
+
+    $.get("position", request).done(function(data) {
+	if (data.status == "ok") {}
+    }).fail(function() {alert("error, please refresh")});
+}
+
+function updateOrderByDisplay(){
+	var ebp = [];
+
+	var el;
+
+	$("#freewall .cell").each(function(index,item){
+		el = $(item);
+
+		ebp.push({ "Element": el, "Top": el.offset().top, "Left": el.offset().left });
+	});
+
+	ebp.sort(function(a,b){
+		if(a.Top > b.Top){
+			return 1;
+		} else if (a.Top < b.Top) {
+			return -1;
+		} else {
+			return (a.Left > b.Left) ? 1 : -1;
+		}
+	});
+	
+	var l = "";
+	var orderChanged = false;
+	for(var e = 0; e < ebp.length; e++){
+		el = ebp[e].Element;
+
+		var currPos = Number(el.data("display-index") || 0);
+		var newPos = e;
+		
+		l = l + el.data("type") + "-" + el.data("device") + "|~|";
+		
+		el.data("display-index", e);
+		
+		if(currPos != newPos){
+			orderChanged = true;
+		}
+	}
+
+	if(orderChanged){
+		var access_token = getUrlParameter("access_token");
+		var request = {list: l};
+		if (access_token) { request["access_token"] = access_token; }
+
+		$.get("position", request)
+			.done(function(data) { if (data.status == "ok") {} })
+			.fail(function() {alert("error, please refresh")});
+	}
+}
