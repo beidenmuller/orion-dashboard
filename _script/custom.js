@@ -75,6 +75,12 @@ function refreshWall(){
 		onResize: function() {
 			wall.fitWidth();
 			wall.refresh();
+		},
+		onBlockDrop: function(e,ui) {
+			setTimeout(function(){ updateOrderByDisplay(); }, 2);
+		}, 
+		onComplete: function(){
+			
 		}
 	}).fitWidth();
 	
