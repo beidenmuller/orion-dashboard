@@ -49,7 +49,9 @@ jQuery(document).on(
 	refreshWall();
 	
     	if(editMode == "true") {
-		wall.addConfig({ draggable: true });
+		jQuery(".tile").off("vmouseup vmousedown click");
+		
+		wall.addConfig({ draggable: true });		
 	} else {
 		var ath = addToHomescreen({ autostart: false });
 		ath.clearSession(); 
