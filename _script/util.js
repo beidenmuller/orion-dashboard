@@ -533,12 +533,12 @@ function changeOrder() {
     }).fail(function() {alert("error, please refresh")});
 }
 
-function updateOrderByDisplay(){
+function updateOrderByDisplay(tileSelector){
 	var ebp = [];
 
 	var el;
 
-	$("#freewall .cell").each(function(index,item){
+	$(tileSelector).each(function(index,item){
 		el = $(item);
 
 		ebp.push({ "Element": el, "Top": el.offset().top, "Left": el.offset().left });
