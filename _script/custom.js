@@ -84,7 +84,7 @@ function refreshWall(isDraggable){
 			wall.refresh();
 		},
 		onBlockDrop: function(e,ui) {
-			setTimeout(function(){ updateOrderByDisplay(); }, 2);
+			setTimeout(function(){ updateOrderByDisplay(".tiles .tile"); }, 2);
 		}, 
 		onComplete: function(){
 			
