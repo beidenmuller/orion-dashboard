@@ -570,6 +570,10 @@ function updateOrderByDisplay(){
 			orderChanged = true;
 		}
 	}
+	
+	console.log(l);
+	
+	return;
 
 	if(orderChanged){
 		var access_token = getUrlParameter("access_token");
