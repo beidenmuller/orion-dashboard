@@ -571,9 +571,8 @@ function updateOrderByDisplay(tileSelector){
 		}
 	}
 	
-	console.log(l);
-	
-	return;
+	//console.log(l);	
+	//return;
 
 	if(orderChanged){
 		var access_token = getUrlParameter("access_token");
