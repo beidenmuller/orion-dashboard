@@ -101,7 +101,7 @@ function initDynamicForm(frm){
 	frm = $(frm);
 	
 	if(frm.length){ 		
-		$(frm).on("submit", function(event,ui){
+		$(frm).off("submit").on("submit", function(event,ui){
 			event.preventDefault();
 
 			var frmData = $(frm).serialize();
