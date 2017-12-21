@@ -95,16 +95,38 @@ function refreshWall(isDraggable){
 	jQuery(window).trigger("resize");
 }
 
-//$(document).ready(function () {
-    //bindDynamicTabs();
-    
-    //initDynamicLinks();
-//});
+function initDynamicForm(frm){
+	$(frm).on("submit", function(event,ui){
+		event.preventDefault();
+		
+		var frmData = $(frm).serialize();
+		
+		ajaxSubmitData(
+		    frm.method,
+		    frm.action,
+		    "application/x-www-form-urlencoded",
+		    "JSON",
+		    frmData,
+		    function (data, status, xhr) {
+			console.log(data);
+		    	console.log(data.status);
+		    	if(data.status == "ok"){
+				console.log("enable edit mode");
+			} else {
+				console.log("error validating pin");	
+			}
 
-//function initDynamicContent(container) {
-    //initDynamicForm(container);
+			$(frm).trigger("dynamicFormSubmit:success", data);
+		    },
+		    function (xhr, ajaxOptions, thrownError) {
+			if (xhr.statusCode != 200) {
+			    alert("error: " + xhr.responseText);
 
-    //bindDynamicTabs(container);
-
-    //initDynamicLinks(container);
-//}
+			    $(frm).trigger("dynamicFormSubmit:error");
+			}
+		    },
+		    function () { enableButtonsForProcessing(frm); },
+		    function () { disableButtonsForProcessing(frm); }
+		);
+	});
+}
