@@ -56,8 +56,6 @@ jQuery(document).on(
 	    
 	wall = new freewall($(this).find(".tiles"));
 	refreshWall((editMode == "true"));
-	    
-    	initDynamicForm(".auth-form form");
     }
 );
 
@@ -99,10 +97,8 @@ function refreshWall(isDraggable){
 
 function initDynamicForm(frm){
 	frm = $(frm);
-	console.log("try to bind auth form");
-	if(frm.length){ 
-		console.log("binding auth form");
-		
+	
+	if(frm.length){ 		
 		$(frm).on("submit", function(event,ui){
 			event.preventDefault();
 
