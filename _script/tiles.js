@@ -207,6 +207,14 @@ function initDashboard(target){
 				}
 			}
 		}),
+		
+		$(target).find(".tile.blank").clickAndHold({
+			holdThreshold: 3000, 
+			onClick: function(){},
+			onHold: function(){ 
+				jQuery.mobile.changePage( adminAuthUrl, { role: "dialog" } );
+			}
+		}),
 	
 		$(target).find(".dimmer, .dimmerLight").clickAndHold({
 			holdThreshold: 750, 
