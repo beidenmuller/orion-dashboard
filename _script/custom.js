@@ -99,8 +99,10 @@ function refreshWall(isDraggable){
 
 function initDynamicForm(frm){
 	frm = $(frm);
-	
+	console.log("try to bind auth form");
 	if(frm.length){ 
+		console.log("binding auth form");
+		
 		$(frm).on("submit", function(event,ui){
 			event.preventDefault();
 
@@ -135,4 +137,63 @@ function initDynamicForm(frm){
 			);
 		});
 	}
+}
+
+function disableButtonsForProcessing(frm, displayText) {
+    var frm = $(frm);
+    
+    var displayText = displayText || "Processing...";
+
+    frm.find("button[type='submit'],input[type='submit']").each(function (index, item) {
+        disableButton($(item), displayText);
+    })
+
+    return;
+}
+
+function enableButtonsForProcessing(frm) {
+    var frm = $(frm);
+    
+    frm.find("button[type='submit'],input[type='submit']").each(function (index, item) {
+        setTimeout(function(){ enableButton($(item)) }, 2);
+    });
+
+    return;
+}
+
+function disableButton(btn, displayText) {
+    var displayText = displayText || "Processing...";
+
+    var btn = $(btn);
+
+    var txtAttrName = "data-orig-text";
+
+    var btnOrigTxt = btn.attr(txtAttrName);
+
+    if (!btn.hasAttr(txtAttrName) || !btnOrigTxt.length) {
+        btn.attr("data-orig-text", (btn.val() || btn.text()))
+            .prop("disabled", "disabled")
+            .text(displayText)
+            .val(displayText);
+    }
+
+    return;
+}
+
+function enableButton(btn) {
+    var btn = $(btn);
+    
+    if (btn.is(":disabled")) {
+        btn.removeAttr("disabled");
+
+        var txtAttrName = "data-orig-text";
+        
+        if (btn.hasAttr(txtAttrName) && btn.attr(txtAttrName).length) {
+            var btnOrigTxt = btn.attr(txtAttrName);
+
+            btn.text(btnOrigTxt).val(btnOrigTxt).removeAttr(txtAttrName);
+        }
+    }
+
+    return;
 }
