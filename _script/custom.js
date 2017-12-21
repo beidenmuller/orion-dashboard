@@ -56,6 +56,8 @@ jQuery(document).on(
 	    
 	wall = new freewall($(this).find(".tiles"));
 	refreshWall((editMode == "true"));
+	    
+    	initDynamicForm(".auth-form form");
     }
 );
 
@@ -96,37 +98,41 @@ function refreshWall(isDraggable){
 }
 
 function initDynamicForm(frm){
-	$(frm).on("submit", function(event,ui){
-		event.preventDefault();
-		
-		var frmData = $(frm).serialize();
-		
-		ajaxSubmitData(
-		    frm.method,
-		    frm.action,
-		    "application/x-www-form-urlencoded",
-		    "JSON",
-		    frmData,
-		    function (data, status, xhr) {
-			console.log(data);
-		    	console.log(data.status);
-		    	if(data.status == "ok"){
-				console.log("enable edit mode");
-			} else {
-				console.log("error validating pin");	
-			}
+	frm = $(frm);
+	
+	if(frm.length){ 
+		$(frm).on("submit", function(event,ui){
+			event.preventDefault();
 
-			$(frm).trigger("dynamicFormSubmit:success", data);
-		    },
-		    function (xhr, ajaxOptions, thrownError) {
-			if (xhr.statusCode != 200) {
-			    alert("error: " + xhr.responseText);
+			var frmData = $(frm).serialize();
 
-			    $(frm).trigger("dynamicFormSubmit:error");
-			}
-		    },
-		    function () { enableButtonsForProcessing(frm); },
-		    function () { disableButtonsForProcessing(frm); }
-		);
-	});
+			ajaxSubmitData(
+			    frm.method,
+			    frm.action,
+			    "application/x-www-form-urlencoded",
+			    "JSON",
+			    frmData,
+			    function (data, status, xhr) {
+				console.log(data);
+				console.log(data.status);
+				if(data.status == "ok"){
+					console.log("enable edit mode");
+				} else {
+					console.log("error validating pin");	
+				}
+
+				$(frm).trigger("dynamicFormSubmit:success", data);
+			    },
+			    function (xhr, ajaxOptions, thrownError) {
+				if (xhr.statusCode != 200) {
+				    alert("error: " + xhr.responseText);
+
+				    $(frm).trigger("dynamicFormSubmit:error");
+				}
+			    },
+			    function () { enableButtonsForProcessing(frm); },
+			    function () { disableButtonsForProcessing(frm); }
+			);
+		});
+	}
 }
