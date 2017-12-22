@@ -104,8 +104,15 @@ function enableConfigMode(){
 	
 	dashboard.addClass("editMode");
 	
+	var isMenuVisible = mainMenu.is(":visible")
+	
 	mainMenu.data("orig-href", mainMenu.attr("href").attr("href", configSettingsUrl);
 	mainMenu.find("i.fa").removeClass("fa-th").addClass("fa-cog");
+	mainMenu.data("orig-visible", isMenuVisible);
+	
+	if(!isMenuVisible){
+		mainMenu.fadeIn();
+	}
 	
 	refreshWall(true);
 }
@@ -121,6 +128,10 @@ function disableConfigMode(){
 	
 	mainMenu.attr("href", mainMenu.data("orig-href"));
 	mainMenu.find("i.fa").removeClass("fa-cog").addClass("fa-th");
+	
+	if(mainMenu.data("orig-visible") == "false"){
+		mainMenu.fadeOut();
+	}
 	
 	refreshWall(false);
 }
