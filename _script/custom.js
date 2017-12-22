@@ -97,7 +97,7 @@ function refreshWall(isDraggable){
 
 function enableConfigMode(){
 	var pageTitle = jQuery(".page-content[data-role='page'] .main-title");
-	var menu = jQuery(".page-content[data-role='page'] .main-menu");
+	var mainMenu = jQuery(".page-content[data-role='page'] .main-menu");
 	var dashboard = jQuery(".page-content[data-role='page'] .tiles");
 	
 	pageTitle.data("orig-text", pageTitle.text()).text("Config Page...");
@@ -119,7 +119,7 @@ function enableConfigMode(){
 
 function disableConfigMode(){
 	var pageTitle = jQuery(".page-content[data-role='page'] .main-title");
-	var menu = jQuery(".page-content[data-role='page'] .main-menu");
+	var mainMenu = jQuery(".page-content[data-role='page'] .main-menu");
 	var dashboard = jQuery(".page-content[data-role='page'] .tiles");
 	
 	pageTitle.text(pageTitle.data("orig-text"));
