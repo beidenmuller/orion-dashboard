@@ -33,8 +33,6 @@ jQuery(document).on(
         }
 		
 	refreshWall();
-	    
-    	initDynamicForm(".auth-form form");
     }
 );
 
