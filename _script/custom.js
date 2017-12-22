@@ -95,16 +95,45 @@ function refreshWall(isDraggable){
 	jQuery(window).trigger("resize");
 }
 
+function enableConfigMode(){
+	var pageTitle = jQuery(".page-content[data-role='page'] .main-title");
+	var menu = jQuery(".page-content[data-role='page'] .main-menu");
+	var dashboard = jQuery(".page-content[data-role='page'] .tiles");
+	
+	pageTitle.data("orig-text", pageTitle.text()).text("Config Page...");
+	
+	dashboard.addClass("editMode");
+	
+	mainMenu.data("orig-href", mainMenu.attr("href").attr("href", configSettingsUrl);
+	mainMenu.find("i.fa").removeClass("fa-th").addClass("fa-cog");
+	
+	refreshWall(true);
+}
+
+function disableConfigMode(){
+	var pageTitle = jQuery(".page-content[data-role='page'] .main-title");
+	var menu = jQuery(".page-content[data-role='page'] .main-menu");
+	var dashboard = jQuery(".page-content[data-role='page'] .tiles");
+	
+	pageTitle.text(pageTitle.data("orig-text"));
+	
+	dashboard.removeClass("editMode");
+	
+	mainMenu.attr("href", mainMenu.data("orig-href"));
+	mainMenu.find("i.fa").removeClass("fa-cog").addClass("fa-th");
+	
+	refreshWall(false);
+}
+
 function initDynamicForm(frm){
 	frm = $(frm);
-	console.log("form els: " + frm.length);
+	
 	if(frm.length){ 		
 		$(frm).off("submit").on("submit", function(event,ui){
 			event.preventDefault();
 
 			var frmData = $(frm).serialize();
-			console.log(frm.attr("method"));
-			console.log(frm.attr("action"));
+			
 			ajaxSubmitData(
 			    frm.attr("method"),
 			    frm.attr("action"),
@@ -123,13 +152,8 @@ function initDynamicForm(frm){
 				$(frm).trigger("dynamicFormSubmit:success", data);
 			    },
 			    function (xhr, ajaxOptions, thrownError) {
-				    console.log("error");
-				    console.log(xhr);
-				    console.log(ajaxOptions);
-				    console.log(thrownError);
 				if (xhr.statusCode != 200) {
 				    alert("error: " + xhr.responseText);
-					console.log("error: " + xhr.responseText);
 				    $(frm).trigger("dynamicFormSubmit:error");
 				}
 			    },
