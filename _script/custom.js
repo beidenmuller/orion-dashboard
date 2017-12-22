@@ -103,11 +103,11 @@ function initDynamicForm(frm){
 			event.preventDefault();
 
 			var frmData = $(frm).serialize();
-			console.log(frm.method);
-			console.log(frm.action);
+			console.log(frm.attr("method"));
+			console.log(frm.attr("action"));
 			ajaxSubmitData(
-			    frm.method,
-			    frm.action,
+			    frm.attr("method"),
+			    frm.attr("action"),
 			    "application/x-www-form-urlencoded",
 			    "JSON",
 			    frmData,
