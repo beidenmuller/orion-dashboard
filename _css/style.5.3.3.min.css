@@ -283,7 +283,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .dashboard-index .item a{white-space:nowrap;display: inline-block;overflow:hidden;text-overflow:ellipsis;color: #777;text-decoration: none;padding:5px 10px 5px 10px;text-align:left;width: 100%;}
 
-.ui-dialog-contain{max-width: 630px;text-align: center;}
+.ui-dialog-contain{max-width: 630px;text-align: center;padding:5px;}
 
 .theme-st .dashboard-index .item{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;padding-bottom:0px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
@@ -310,6 +310,8 @@ body.theme-st{background-color:#1BBEFF;}
 .device-detail .tiles .tile.blank{display: none;}
 
 .device-detail .tiles .tile.large {width: 100% !important;clear: both;display: block;position: relative;margin: 0px;}
+
+.auth-form .ui-btn {width: 35% !important;display: inline-block !important;overflow:inherit !important;}
 
 /* Freewall */
 
