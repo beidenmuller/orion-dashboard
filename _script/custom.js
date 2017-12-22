@@ -91,6 +91,10 @@ function refreshWall(isDraggable){
 		}
 	}).fitWidth();
 	
+	if((isDraggable || false) == true){
+		$("[data-role='page'] .tiles .tile").off("vmouseup vmousedown click");
+	}
+	
 	// for scroll bar appear;
 	jQuery(window).trigger("resize");
 }
