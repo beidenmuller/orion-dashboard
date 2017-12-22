@@ -124,7 +124,7 @@ function initDynamicForm(frm){
 			    function (xhr, ajaxOptions, thrownError) {
 				if (xhr.statusCode != 200) {
 				    alert("error: " + xhr.responseText);
-
+					console.log("error: " + xhr.responseText);
 				    $(frm).trigger("dynamicFormSubmit:error");
 				}
 			    },
