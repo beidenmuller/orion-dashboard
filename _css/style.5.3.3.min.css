@@ -101,6 +101,8 @@
 .tile.active .icon i.inactive,.tile:not(.active) .icon i.active{display:none}
 .tile.inactive .icon i.inactive{opacity:.3}
 
+.tiles.editMode .tile{outline: dashed 1px #DDD;}
+
 .icon{font-size:3em;line-height:3em;width:100%;margin-top:-1.5em;position:absolute;text-align:center;top:50%;white-space:nowrap}
 
 .icon.text{font-size:1.8em;line-height:2em;width:100%;margin-top:-1em}
@@ -260,6 +262,8 @@ body.theme-st{background-color:#1BBEFF;}
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
 .theme-st .tiles .tile.active .icon i.active{color:#7DBE63}
+
+.theme-st .tiles.editMode .tile{outline: dashed 1px #1BBEFF;}
 
 .theme-st{color:#B1B1B1;}
 
