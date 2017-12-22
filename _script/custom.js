@@ -106,7 +106,7 @@ function enableConfigMode(){
 	
 	var isMenuVisible = mainMenu.is(":visible")
 	
-	mainMenu.data("orig-href", mainMenu.attr("href").attr("href", configSettingsUrl);
+	mainMenu.data("orig-href", mainMenu.attr("href")).attr("href", configSettingsUrl);
 	mainMenu.find("i.fa").removeClass("fa-th").addClass("fa-cog");
 	mainMenu.data("orig-visible", isMenuVisible);
 	
