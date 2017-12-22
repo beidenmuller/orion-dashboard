@@ -152,14 +152,6 @@ function initDynamicForm(frm){
 			    "JSON",
 			    frmData,
 			    function (data, status, xhr) {
-				console.log(data);
-				console.log(data.status);
-				if(data.status == "ok"){
-					console.log("enable edit mode");
-				} else {
-					console.log("error validating pin");	
-				}
-
 				$(frm).trigger("dynamicFormSubmit:success", data);
 			    },
 			    function (xhr, ajaxOptions, thrownError) {
