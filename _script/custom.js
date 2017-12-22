@@ -99,7 +99,7 @@ function refreshWall(isDraggable){
 
 function initDynamicForm(frm){
 	frm = $(frm);
-	
+	console.log("form els: " + frm.length);
 	if(frm.length){ 		
 		$(frm).off("submit").on("submit", function(event,ui){
 			event.preventDefault();
