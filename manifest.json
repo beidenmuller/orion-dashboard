@@ -1,19 +1,19 @@
 {
   "short_name": "Orion Dashboard",
-  "name": "Orion Dashboard: A Smartthings Dashboard",
+  "name": "Orion Dashboard - A Smartthings Dashboard",
   "icons": [
     {
-      "src": "launcher-icon-2x.png",
+      "src": "https://rawgit.com/beidenmuller/orion-dashboard/master/_img/icon-2x.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "launcher-icon-3x.png",
+      "src": "https://rawgit.com/beidenmuller/orion-dashboard/master/_img/icon-3x.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "launcher-icon-4x.png",
+      "src": "https://rawgit.com/beidenmuller/orion-dashboard/master/_img/icon-4x.png",
       "sizes": "192x192",
       "type": "image/png"
     }
