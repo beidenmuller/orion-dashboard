@@ -1,10 +1,3 @@
-﻿
-if ('serviceWorker' in navigator) {
-	window.addEventListener('load', function() {
-		navigator.serviceWorker.register('https://rawgit.com/beidenmuller/orion-dashboard/master/_script/service-worker.js');
-	});
-}
-
 jQuery(document).on(
     "pageshow", 
     "[data-role='page']", 
