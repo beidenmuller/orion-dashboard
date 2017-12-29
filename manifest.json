@@ -18,7 +18,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "ui?test=test"
+  "start_url": "https://graph.api.smartthings.com/api/smartapps/installations/04f23b51-602c-46b6-8faa-e62a412cf921/ui?access_token=7f4edb85-94a8-4a28-9513-6e9f4a9d9c13",
   "display": "standalone",
   "orientation": "landscape"
 }
