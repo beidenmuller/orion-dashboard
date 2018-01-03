@@ -38,7 +38,7 @@ jQuery(document).on(
 var wall = null;
 
 jQuery(document).on(
-    "pagecreate", 
+    "pageinit", 
     "[data-role='page']", 
     function(e,ui){ 
 	var editMode = getUrlParameter("editMode");
@@ -113,6 +113,15 @@ function enableConfigMode(){
 	mainMenu.find("i.fa").removeClass("fa-th").addClass("fa-cog");
 	mainMenu.data("orig-visible", isMenuVisible);
 	
+	if(AppPreferences){
+		mainMenu.attr("rel", "external");
+		mainMenu.off("click").on("click", function(event,data){
+			event.preventDefault();
+			
+			AppPreferences.loadPreferences();
+		});
+	}
+	
 	if(!isMenuVisible){
 		mainMenu.fadeIn();
 	}
@@ -128,6 +137,11 @@ function disableConfigMode(){
 	pageTitle.text(pageTitle.data("orig-text"));
 	
 	dashboard.removeClass("editMode");
+	
+	if(AppPreferences){
+		mainMenu.removeAttr("rel");
+		mainMenu.off("click");
+	}
 	
 	mainMenu.attr("href", mainMenu.data("orig-href"));
 	mainMenu.find("i.fa").removeClass("fa-cog").addClass("fa-th");
