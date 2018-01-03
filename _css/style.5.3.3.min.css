@@ -271,7 +271,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .active{color:#7DBE63;}
 
-.theme-st .main-title{color:#B1B1B1;opacity:.3;font-size:300%;white-space:nowrap;margin:0px;padding:0px;text-overflow:ellipsis;overflow:hidden;margin-right:75px;}
+.theme-st .main-title{color:#B1B1B1;opacity:.3;font-size:225%;white-space:nowrap;margin:0px;padding:0px;text-overflow:ellipsis;overflow:hidden;margin-right:75px;}
 
 .theme-st .content-title{color:#B1B1B1;opacity:.3;font-size:200%;white-space:nowrap;margin:0px;padding:0px 10px 0px 10px;text-overflow:ellipsis;overflow:hidden;}
 
