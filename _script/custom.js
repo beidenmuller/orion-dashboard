@@ -48,9 +48,9 @@ jQuery(document).on(
     	if(editMode == "true") {
 		jQuery(".tile").off("vmouseup vmousedown click");		
 	} else {
-		var ath = addToHomescreen({ autostart: false });
-		ath.clearSession(); 
-		ath.show(); 
+		//var ath = addToHomescreen({ autostart: false });
+		//ath.clearSession(); 
+		//ath.show(); 
 	}
 	    
 	wall = new freewall($(this).find(".tiles"));
