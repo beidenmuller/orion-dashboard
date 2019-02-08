@@ -113,14 +113,16 @@ function enableConfigMode(){
 	mainMenu.find("i.fa").removeClass("fa-th").addClass("fa-cog");
 	mainMenu.data("orig-visible", isMenuVisible);
 	
-	if(AppPreferences){
-		mainMenu.attr("rel", "external");
-		mainMenu.off("click").on("click", function(event,data){
-			event.preventDefault();
+	try{
+		if(AppPreferences){
+			mainMenu.attr("rel", "external");
+			mainMenu.off("click").on("click", function(event,data){
+				event.preventDefault();
 			
-			AppPreferences.loadPreferences();
-		});
-	}
+				AppPreferences.loadPreferences();
+			});
+		}
+	} catch(ex){}
 	
 	if(!isMenuVisible){
 		mainMenu.fadeIn();
