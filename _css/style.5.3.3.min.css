@@ -143,7 +143,9 @@
 
 .ui-slider-popup{height:12px;width:18px;padding-top:0;padding-bottom:2px;font-size:12px}
 
-div.ui-slider{height:21px}.ui-slider-track{margin:0!important}
+/*div.ui-slider{height:21px}*/
+
+.ui-slider-track{margin:0!important}
 
 .full-width-slider{position:absolute;bottom:-2px;width:100%}
 
