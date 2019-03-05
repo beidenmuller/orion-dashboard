@@ -68,7 +68,7 @@
 
 *{text-shadow:none;font-family:Mallanna,Verdana,Arial,Helvetica,sans-serif}
 
-.ui-overlay-a{text-shadow:none}
+/*.ui-overlay-a{text-shadow:none}*/
 
 .ui-li-static.ui-body-inherit{text-align:center;cursor:pointer}
 
@@ -129,7 +129,7 @@
 
 .r45{-moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
 
-.ui-page-theme-a .ui-bar-inherit{background-color:grey}
+/*.ui-page-theme-a .ui-bar-inherit{background-color:grey}*/
 
 .ui-page-theme-a .ui-slider-track .ui-btn-active,.ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
@@ -139,7 +139,7 @@
 
 .ui-slider-track.ui-corner-all{border-radius:1em}
 
-.ui-slider-track.ui-mini{height:3px}
+/*.ui-slider-track.ui-mini{height:3px}*/
 
 .ui-slider-popup{height:12px;width:18px;padding-top:0;padding-bottom:2px;font-size:12px}
 
