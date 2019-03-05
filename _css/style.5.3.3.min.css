@@ -131,13 +131,13 @@
 
 /*.ui-page-theme-a .ui-bar-inherit{background-color:grey}*/
 
-.ui-page-theme-a .ui-slider-track .ui-btn-active,.ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
+/*.ui-page-theme-a .ui-slider-track .ui-btn-active,.ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}*/
 
 .ui-slider-handle.ui-btn.ui-shadow{box-shadow:0 4px 3px rgba(0,0,0,.4),0 8px 13px rgba(0,0,0,.1),0 18px 23px rgba(0,0,0,.1);-webkit-box-shadow:0 4px 3px rgba(0,0,0,.4),0 8px 13px rgba(0,0,0,.1),0 18px 23px rgba(0,0,0,.1);-moz-box-shadow:0 4px 3px rgba(0,0,0,.4),0 8px 13px rgba(0,0,0,.1),0 18px 23px rgba(0,0,0,.1)}
 
 .ui-page-theme-a .ui-bar-inherit{border:none}
 
-.ui-slider-track.ui-corner-all{border-radius:1em}
+/*.ui-slider-track.ui-corner-all{border-radius:1em}*/
 
 /*.ui-slider-track.ui-mini{height:3px}*/
 
