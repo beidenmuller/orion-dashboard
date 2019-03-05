@@ -46,7 +46,7 @@ function setIcons(target){
 
 function renderSlider(t){
 	t.find(".slider-container").remove(),
-	t.append("<div class='slider-container'><div class='full-width-slider'><input value='"+t.attr("data-level")+"' min='1' max='10' type='range' step='1' data-mini='true' data-popup-enabled='true' data-disabled='"+readOnlyMode+"' data-highlight='true'></div></div>").find("input").slider(),
+	t.append("<div class='slider-container'><div class='full-width-slider'><input value='"+t.attr("data-level")+"' min='1' max='10' type='range' step='1' data-mini='true' data-popup-enabled='true' data-disabled='"+readOnlyMode+"' data-highlight='true' data-mini='true'></div></div>").find("input").slider(),
 	$(".full-width-slider").click(function(t){t.stopImmediatePropagation()})
 }
 
