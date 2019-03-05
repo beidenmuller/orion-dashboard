@@ -68,7 +68,7 @@
 
 *{text-shadow:none;font-family:Mallanna,Verdana,Arial,Helvetica,sans-serif}
 
-.ui-overlay-a{text-shadow:none}
+/*.ui-overlay-a{text-shadow:none}*/
 
 .ui-li-static.ui-body-inherit{text-align:center;cursor:pointer}
 
@@ -129,21 +129,23 @@
 
 .r45{-moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}
 
-.ui-page-theme-a .ui-bar-inherit{background-color:grey}
+/*.ui-page-theme-a .ui-bar-inherit{background-color:grey}*/
 
-.ui-page-theme-a .ui-slider-track .ui-btn-active,.ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
+/*.ui-page-theme-a .ui-slider-track .ui-btn-active,.ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}*/
 
 .ui-slider-handle.ui-btn.ui-shadow{box-shadow:0 4px 3px rgba(0,0,0,.4),0 8px 13px rgba(0,0,0,.1),0 18px 23px rgba(0,0,0,.1);-webkit-box-shadow:0 4px 3px rgba(0,0,0,.4),0 8px 13px rgba(0,0,0,.1),0 18px 23px rgba(0,0,0,.1);-moz-box-shadow:0 4px 3px rgba(0,0,0,.4),0 8px 13px rgba(0,0,0,.1),0 18px 23px rgba(0,0,0,.1)}
 
 .ui-page-theme-a .ui-bar-inherit{border:none}
 
-.ui-slider-track.ui-corner-all{border-radius:1em}
+/*.ui-slider-track.ui-corner-all{border-radius:1em}*/
 
-.ui-slider-track.ui-mini{height:3px}
+/*.ui-slider-track.ui-mini{height:3px}*/
 
 .ui-slider-popup{height:12px;width:18px;padding-top:0;padding-bottom:2px;font-size:12px}
 
-div.ui-slider{height:21px}.ui-slider-track{margin:0!important}
+/*div.ui-slider{height:21px}*/
+
+.ui-slider-track{margin:0!important}
 
 .full-width-slider{position:absolute;bottom:-2px;width:100%}
 
@@ -261,7 +263,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
-.theme-st .tiles .tile.active .icon i.active{color:#7DBE63}
+.theme-st .tiles .tile.active .icon i.active{color:#1BBEFF}
 
 .theme-st .tiles.editMode .tile{outline: dashed 2px #1BBEFF;border-color: #1BBEFF;color: #1BBEFF !important;}
 
@@ -269,7 +271,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st{color:#B1B1B1;}
 
-.theme-st .active{color:#7DBE63;}
+.theme-st .active{color:#1BBEFF;}
 
 .theme-st .main-title{color:#B1B1B1;opacity:.3;font-size:225%;white-space:nowrap;margin:0px;padding:0px;text-overflow:ellipsis;overflow:hidden;margin-right:75px;padding-top:5px;margin-bottom:10px;}
 
