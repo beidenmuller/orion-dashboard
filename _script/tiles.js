@@ -1,4 +1,3 @@
-/*Tiles*/
 
 function thermostatEvent(t,e){
 	if(window[t.data("device")]){ clearTimeout(window[t.data("device")]); }
@@ -45,7 +44,7 @@ function setIcons(target){
 	$(target).find(".presence").append("<div class='icon'>" + icons.presence.present + icons.presence.notPresent + "</div>");
 	$(target).find(".contact").append("<div class='icon'>" + icons.contact.open + icons.contact.closed + "</div>");
 	$(target).find(".water").append("<div class='icon'>" + icons.water.dry + icons.water.wet + "</div>");
-	$(target).find(".dimmer, .dimmerLight, .music").each(function(){renderSlider($(this))});
+	$(target).find(".dimmer, .dimmerLight, .music").each(function(){ renderSlider($(this)); });
 	$(target).find(".momentary").append("<div class='icon'>" + icons.momentary + "</div>");
 	$(target).find(".camera").append("<div class='icon'>" + icons.camera + "</div>");
 	$(target).find(".refresh").append("<div class='icon'>" + icons.refresh + "</div>");
@@ -59,7 +58,7 @@ function setIcons(target){
 	$(target).find(".battery").append("<div class='footer'>" + icons.battery + "</div>");
 	$(target).find(".link").find("a").html(icons.link);
 	$(target).find(".dashboard").find("a").html(icons.dashboard);
-	$(target).find(".tile[data-is-value=true]").each(function(){ renderValue( $(this) ) });
+	$(target).find(".tile[data-is-value=true]").each(function(){ renderValue( $(this) ); });
 }
 
 function renderSlider(t){
@@ -111,9 +110,8 @@ function sendCommand(t,e,i,a){
 	
 function doPoll(t){
 	nextPoll(20);
-	//t||
 	
-	spinner($(".refresh"));
+	if(!t){ spinner($(".refresh")); }
 	
 	var e = getUrlParameter("access_token");
 	
