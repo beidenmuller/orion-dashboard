@@ -160,7 +160,7 @@ $.widget("mobile.slider", $.mobile.slider, {
 
             this.refresh( undefined, undefined, true );
 
-            this.slider.attr("style", "width:20px !important; margin: 0 0 20px 14px !important; height:"+this.options.height+"px !important;")
+            this.slider.attr("style", "width:20px !important; margin: 0 0 20px 14px; height:"+this.options.height+"px !important;")
             $(this.control).detach()
             $(this.slider).parent().append(this.control)
             $(this.slider).parent().css("margin-bottom", (this.options.height + 30) + "px")
