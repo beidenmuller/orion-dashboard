@@ -96,8 +96,13 @@ function sendCommand(t,e,i,a){
 	if(o){ n.access_token = o; }
 	
 	$.get("command", n)
-		.done(function(t){ "ok" == t.status && nextPoll(5)})
-		.fail(function(){ setWTFCloud(); nextPoll(10);})
+		.done(function(t){ 
+			if("ok" == t.status){ nextPoll(5); } 
+		})
+		.fail(function(){ 
+			setWTFCloud(); 
+			nextPoll(10);
+		})
 }
 	
 function doPoll(t){
@@ -121,7 +126,7 @@ function doPoll(t){
 			
 			for(i in e.data){ updateTile(e.data[i]); }}
 		)
-		.fail(function(){setWTFCloud()})
+		.fail(function(){ setWTFCloud(); })
 }
 		
 function updateTile(t){
@@ -221,11 +226,15 @@ function checkDataForUpdates(t,e){
 }
 
 function setWTFCloud(){
-	if(wtfCloud =! 0) { $("#wtfcloud-popup").popup("open"); }
+	wtfCloud = true;
+	
+	$("#wtfcloud-popup").popup("open");
 }
 
 function clearWTFCloud(){
-	if(wtfCloud =! 1){ $("#wtfcloud-popup").popup("close"); }
+	wtfCloud = false);
+	
+	$("#wtfcloud-popup").popup("close");
 }
 
 function nextPoll(t){
@@ -494,4 +503,35 @@ function initDashboard(target){
 	)
 };
 
-var fadeOn=100,fadeOff=200,polling,wtfCloud=!1;nextPoll(30),refresh(3600),CoolClock.config.skins={st:{outerBorder:{lineWidth:12,radius:100,color:"yellow",alpha:0},smallIndicator:{lineWidth:16,startAt:80,endAt:85,color:getClockColor(),alpha:1},largeIndicator:{lineWidth:2,startAt:80,endAt:85,color:getClockColor(),alpha:1},hourHand:{lineWidth:8,startAt:0,endAt:60,color:getClockColor(),alpha:1},minuteHand:{lineWidth:6,startAt:0,endAt:75,color:getClockColor(),alpha:1},secondHand:{lineWidth:5,startAt:80,endAt:85,color:"red",alpha:0},secondDecoration:{lineWidth:3,startAt:96,radius:4,fillColor:getClockColor(),color:"black",alpha:1}},st1:{outerBorder:{lineWidth:2,radius:80,color:getClockColor(),alpha:0},smallIndicator:{lineWidth:5,startAt:88,endAt:94,color:"yellow",alpha:0},largeIndicator:{lineWidth:5,startAt:90,endAt:94,color:getClockColor(),alpha:1},hourHand:{lineWidth:8,startAt:0,endAt:60,color:getClockColor(),alpha:1},minuteHand:{lineWidth:8,startAt:0,endAt:80,color:getClockColor(),alpha:1},secondHand:{lineWidth:5,startAt:89,endAt:94,color:getClockColor(),alpha:1},secondDecoration:{lineWidth:3,startAt:0,radius:4,fillColor:"black",color:"black",alpha:0}}};var cellSize=getUrlParameter("t")||tileSize,cellGutter=getUrlParameter("g")||4;
+var fadeOn = 100;
+var fadeOff = 200;
+var polling;
+//var wtfCloud = !1;
+var wtfCloud = false;
+
+nextPoll(30);
+refresh(3600);
+
+CoolClock.config.skins={
+	st:{
+		outerBorder:{ lineWidth:12,radius:100,color:"yellow",alpha:0 },
+		smallIndicator:{ lineWidth:16,startAt:80,endAt:85,color:getClockColor(),alpha:1 },
+		largeIndicator:{ lineWidth:2,startAt:80,endAt:85,color:getClockColor(),alpha:1 },
+		hourHand:{ lineWidth:8,startAt:0,endAt:60,color:getClockColor(),alpha:1 },
+		minuteHand:{ lineWidth:6,startAt:0,endAt:75,color:getClockColor(),alpha:1 },
+		secondHand:{ lineWidth:5,startAt:80,endAt:85,color:"red",alpha:0 },
+		secondDecoration:{ lineWidth:3,startAt:96,radius:4,fillColor:getClockColor(),color:"black",alpha:1 }
+	},
+	st1:{
+		outerBorder:{ lineWidth:2,radius:80,color:getClockColor(),alpha:0 },
+		smallIndicator:{ lineWidth:5,startAt:88,endAt:94,color:"yellow",alpha:0 },
+		largeIndicator:{ lineWidth:5,startAt:90,endAt:94,color:getClockColor(),alpha:1 },
+		hourHand:{ lineWidth:8,startAt:0,endAt:60,color:getClockColor(),alpha:1 },
+		minuteHand:{ lineWidth:8,startAt:0,endAt:80,color:getClockColor(),alpha:1 },
+		secondHand:{ lineWidth:5,startAt:89,endAt:94,color:getClockColor(),alpha:1 },
+		secondDecoration:{ lineWidth:3,startAt:0,radius:4,fillColor:"black",color:"black",alpha:0 }
+	}
+};
+
+var cellSize = getUrlParameter("t") || tileSize;
+var cellGutter = getUrlParameter("g") || 4;
