@@ -187,7 +187,7 @@ function updateTile(t){
 				if(t.level != e.attr("data-level")){ spinner(e); }
 				
 				e.attr("data-level", t.level);
-				renderSlider(e);
+				renderSlider(e, true);
 				
 				break;
 			
