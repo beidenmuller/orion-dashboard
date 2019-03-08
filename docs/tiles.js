@@ -86,7 +86,7 @@ function renderValue(t){
 function updateWeather(t,e){
 	var deg = "&deg;".sup();
 
-	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike").append(deg);
+	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike).append(deg);
 	t.find(".icon.text").html(e.temperature).append(deg);
 	t.find(".icon i").attr("class","wi " + e.icon);
 	t.find(".footer").html(e.localSunrise + ' <i class="fa fa-fw wi wi-horizon-alt"></i> ' + e.localSunset);
