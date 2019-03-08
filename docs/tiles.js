@@ -87,7 +87,7 @@ function formatValue(v){
 
 function updateWeather(t,e){
 	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike + supDegree);
-	t.find(".icon.text").html(e.temperature + supDegree);
+	t.find(".icon .text").html(e.temperature + supDegree);
 	t.find(".icon i").attr("class","wi " + e.icon);
 	t.find(".footer").html(e.localSunrise + ' <i class="fa fa-fw wi wi-horizon-alt"></i> ' + e.localSunset);
 	t.find(".footer.right").html(e.percentPrecip+"%<i class='fa fa-fw fa-umbrella'></i><br>" + e.humidity + "%<i class='fa fa-fw wi wi-sprinkles'></i>");
