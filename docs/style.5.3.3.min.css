@@ -105,7 +105,7 @@
 
 .icon{font-size:3em;width:100%;position:absolute;text-align:center;white-space:nowrap}
 
-.icon.text{font-size:1.8em;line-height:2em;width:100%;margin-top:-1em}
+.icon.text{font-size:1.8em;width:100%;margin-top:-1em}
 
 .icon span.text{font-size:.75em;margin-right:15px}
 
@@ -264,7 +264,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .tile i {margin-right: 5px;}
 
-.theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:20px;}
+.theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:.2em;}
 
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
