@@ -161,7 +161,7 @@
 
 .full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; }
 
-.full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px; }
+.full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
 
 .batt{content:"";background-image:url(battery.png);background-size:16px 16px;background-repeat:no-repeat;background-position:center center}
 
