@@ -1,17 +1,20 @@
 /*Tiles*/
 
 function thermostatEvent(t,e){
-	window[t.data("device")]&&clearTimeout(window[t.data("device")]);
+	if(window[t.data("device")]){ clearTimeout(window[t.data("device")]); }
 	
 	var i = parseInt(t.attr("data-setpoint"));
 	
-	i<maxTemp&&i>minTemp&&(i+=e,t.find(".icon.setpoint").html(i+"&deg;"));
+	if(i < maxTemp && i > minTemp){ 
+		i += e;
+		t.find(".icon.setpoint").html( i + "&deg;");
+	}
 	
-	t.attr("data-setpoint",i);
+	t.attr("data-setpoint", i);
 	
 	window[t.data("device")] = setTimeout(function(){ 
 		animateClick(t);
-		sendCommand(t.attr("data-type"),t.attr("data-device"),"setpoint",i)
+		sendCommand(t.attr("data-type"), t.attr("data-device"), "setpoint", i);
 	}, 500);
 }
 
@@ -26,7 +29,8 @@ function animateClick(t){
 function spinner(t){
 	t.closest(".tile").find(".spinner")
 		.fadeIn("slow")
-		.delay(2e3).fadeOut("slow");
+		.delay(2e3)
+		.fadeOut("slow");
 }
 
 function setIcons(target){
@@ -65,7 +69,7 @@ function renderSlider(t){
 		.find("input")
 		.slider();
 	
-	$(".full-width-slider").click(function(t){ t.stopImmediatePropagation() });
+	$(".full-width-slider").click(function(t){ t.stopImmediatePropagation(); });
 }
 
 function renderValue(t){
@@ -84,14 +88,14 @@ function updateWeather(t,e){
 function updateThermostat(t,e){
 	t.find(".title2").html(e.temperature + "&deg;, " + e.thermostatOperatingState);
 	t.find(".icon.setpoint").html(e.setpoint + "&deg;");
-	t.find(".footer").html("&#10044; " + e.thermostatFanMode + (e.humidity?",<i class='fa fa-fw wi wi-sprinkles'></i>" + e.humidity+"%":""));
+	t.find(".footer").html("&#10044; " + e.thermostatFanMode + (e.humidity ? ",<i class='fa fa-fw wi wi-sprinkles'></i>" + e.humidity + "%" : ""));
 	
 	t.attr("data-setpoint", e.setpoint);
 }
 
 function sendCommand(t,e,i,a){
 	var o = getUrlParameter("access_token");
-	var n = {type:t, device:e, command:i, value:a};
+	var n = { type:t, device:e, command:i, value:a };
 	
 	if(o){ n.access_token = o; }
 	
@@ -107,12 +111,15 @@ function sendCommand(t,e,i,a){
 	
 function doPoll(t){
 	nextPoll(20);
-	t||spinner($(".refresh"));
+	//t||
+	
+	spinner($(".refresh"));
 	
 	var e = getUrlParameter("access_token");
 	
-	var a = {ts:stateTS};
-	e && (a.access_token = e);
+	var a = { ts:stateTS };
+	
+	if(e){ a.access_token = e; }
 	
 	$.get("ping",a)
 		.done(function(e){
@@ -133,7 +140,7 @@ function updateTile(t){
 	if("device" == t.tile){
 		var e = $("." + t.type + "[data-device=" + t.device + "]");
 		
-		switch(type){
+		switch(t.type){
 			case "music":
 				if (t.trackDescription != e.attr("data-track-description" || t.mute + "" != e.attr("data-mute")){ 
 					spinner(e);
@@ -145,10 +152,9 @@ function updateTile(t){
 				
 				if(t.level != e.attr("data-level")){ spinner(e); }
 				
-				e.attr("data-level", t.level);
-				renderSlider(e);
+				e.attr({ "data-level": t.level, "data-mute": t.mute });
 				
-				e.attr("data-mute", t.mute);
+				renderSlider(e);
 				
 				e.find(".title .track").html( e.attr("data-track-description") );
 			
@@ -193,9 +199,7 @@ function updateTile(t){
 		
 		if(t.mode != e.attr("data-mode")){ spinner(e); }
 		
-		e.removeClass(e.attr("data-mode"));
-		
-		e.attr("data-mode",t.mode);
+		e.removeClass(e.attr("data-mode")).attr("data-mode", t.mode);
 		
 		if(t.isStandardMode) { e.addClass(t.mode); }
 		
@@ -270,12 +274,12 @@ function getUrlParameter(t){
 function getClockColor(){ 
 	return ("quartz" == theme) 
 		? "#555" 
-		: ("onyx" == theme) ? "wheat" : "white" ;
+		: (("onyx" == theme) ? "wheat" : "white");
 }
 
 function startTime(){
 	if(document.getElementById("clock")){
-		var t=new Date();
+		var t = new Date();
 		var e = t.getHours();
 		
 		if(e > 12){ e -= 12; }
@@ -288,7 +292,7 @@ function startTime(){
 		
 		document.getElementById("clock").innerHTML = e + ":" + i;
 		
-		setTimeout(function(){ startTime(); },500);
+		setTimeout(function(){ startTime(); }, 500);
 	}
 }
 
@@ -298,7 +302,7 @@ function checkTime(t){
 	return t;
 }
 
-var scriptVersion="5.3.0";
+var scriptVersion = "5.3.0";
 
 function initDashboard(target){
 	var target = target || ".ui-page-active ";
@@ -307,18 +311,21 @@ function initDashboard(target){
 	
 	setIcons(target);
 	
-	$(target).find(".refresh").click(function(){refresh()});
+	$(target).find(".refresh").click(function(){ refresh(); });
 	
-	$(target).find(".clock").click(function(){refresh()});
+	$(target).find(".clock").click(function(){ refresh(); });
 	
 	startTime();
 	
 	$(target).find(".dashboard").click(function(t){
 		animateClick($(this)),
+		
 		t.stopImmediatePropagation(),
 		t.preventDefault(),
-		$(target).find(".refresh .icon").addClass("fa-spin"),
-		window.location=$(this).find("a").attr("href")
+		
+		$(target).find(".refresh .icon").addClass("fa-spin");
+		
+		window.location = $(this).find("a").attr("href");
 	});
 	
 	$(target).find(".history.tile").click(function(t){ 
@@ -352,9 +359,9 @@ function initDashboard(target){
 			onClick: function(){ 
 				var el = jQuery(this);  
 				
-				animateClick(el);
-				el.closest(".tile").toggleClass("active");
-				sendCommand(el.attr("data-type"),el.attr("data-device"),"toggle");
+				animateClick(el);				
+				el.closest(".tile").toggleClass("active");				
+				sendCommand(el.attr("data-type"), el.attr("data-device"), "toggle");
 			},
 			onHold: function(){ 
 				var el = jQuery(this);                
@@ -382,7 +389,7 @@ function initDashboard(target){
 				
 				animateClick(el);
 				el.toggleClass("active");
-				sendCommand(el.attr("data-type"),el.attr("data-device"),"toggle",el.attr("data-level"));
+				sendCommand(el.attr("data-type"), el.attr("data-device"), "toggle", el.attr("data-level"));
 			},
 			onHold: function(){ 
 				var el = jQuery(this);                
@@ -399,7 +406,7 @@ function initDashboard(target){
 			var t = $(this).find("input").val();
 			if($(this).hasClass("active")) { (animateClick($(this)); };
 			
-			sendCommand($(this).attr("data-type"), $(this).attr("data-device"), "level",t);
+			sendCommand($(this).attr("data-type"), $(this).attr("data-device"), "level", t);
 			
 			$(this).attr("data-level", t);
 		});
@@ -514,22 +521,22 @@ refresh(3600);
 
 CoolClock.config.skins={
 	st:{
-		outerBorder:{ lineWidth:12,radius:100,color:"yellow",alpha:0 },
-		smallIndicator:{ lineWidth:16,startAt:80,endAt:85,color:getClockColor(),alpha:1 },
+		outerBorder:{ lineWidth:12, radius:100, color:"yellow", alpha:0 },
+		smallIndicator:{ lineWidth:16, startAt:80, endAt:85, color:getClockColor(), alpha:1 },
 		largeIndicator:{ lineWidth:2,startAt:80,endAt:85,color:getClockColor(),alpha:1 },
-		hourHand:{ lineWidth:8,startAt:0,endAt:60,color:getClockColor(),alpha:1 },
-		minuteHand:{ lineWidth:6,startAt:0,endAt:75,color:getClockColor(),alpha:1 },
-		secondHand:{ lineWidth:5,startAt:80,endAt:85,color:"red",alpha:0 },
-		secondDecoration:{ lineWidth:3,startAt:96,radius:4,fillColor:getClockColor(),color:"black",alpha:1 }
+		hourHand:{ lineWidth:8, startAt:0, endAt:60, color:getClockColor(), alpha:1 },
+		minuteHand:{ lineWidth:6, startAt:0, endAt:75, color:getClockColor(), alpha:1 },
+		secondHand:{ lineWidth:5, startAt:80, endAt:85, color:"red", alpha:0 },
+		secondDecoration:{ lineWidth:3, startAt:96, radius:4, fillColor:getClockColor(), color:"black", alpha:1 }
 	},
 	st1:{
-		outerBorder:{ lineWidth:2,radius:80,color:getClockColor(),alpha:0 },
-		smallIndicator:{ lineWidth:5,startAt:88,endAt:94,color:"yellow",alpha:0 },
-		largeIndicator:{ lineWidth:5,startAt:90,endAt:94,color:getClockColor(),alpha:1 },
-		hourHand:{ lineWidth:8,startAt:0,endAt:60,color:getClockColor(),alpha:1 },
-		minuteHand:{ lineWidth:8,startAt:0,endAt:80,color:getClockColor(),alpha:1 },
-		secondHand:{ lineWidth:5,startAt:89,endAt:94,color:getClockColor(),alpha:1 },
-		secondDecoration:{ lineWidth:3,startAt:0,radius:4,fillColor:"black",color:"black",alpha:0 }
+		outerBorder:{ lineWidth:2, radius:80, color:getClockColor(), alpha:0 },
+		smallIndicator:{ lineWidth:5, startAt:88, endAt:94, color:"yellow", alpha:0 },
+		largeIndicator:{ lineWidth:5, startAt:90, endAt:94, color:getClockColor(), alpha:1 },
+		hourHand:{ lineWidth:8, startAt:0, endAt:60, color:getClockColor(), alpha:1 },
+		minuteHand:{ lineWidth:8, startAt:0, endAt:80, color:getClockColor(), alpha:1 },
+		secondHand:{ lineWidth:5, startAt:89, endAt:94, color:getClockColor(), alpha:1 },
+		secondDecoration:{ lineWidth:3, startAt:0, radius:4, fillColor:"black", color:"black", alpha:0 }
 	}
 };
 
