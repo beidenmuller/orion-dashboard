@@ -190,7 +190,7 @@ function updateTile(t){
 			} else {
 				e.removeClass("inactive active")
 					.addClass(t.active)
-					.attr("data-active",t.active));
+					.attr("data-active",t.active);
 			}
 		} 
 	} else if("mode" == t.tile){
