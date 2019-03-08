@@ -403,7 +403,7 @@ function initDashboard(target){
 	
 		$(target).find(".dimmer, .dimmerLight").on("slidestop", function(){
 			var t = $(this).find("input").val();
-			if($(this).hasClass("active")) { (animateClick($(this)); };
+			if($(this).hasClass("active")) { animateClick($(this)); };
 			
 			sendCommand($(this).attr("data-type"), $(this).attr("data-device"), "level", t);
 			
