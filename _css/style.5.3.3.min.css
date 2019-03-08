@@ -14,6 +14,8 @@
 
 .dimmer,.dimmerLight,.light,.momentary,.switch,.themeLight{background-color:#4caf50}
 
+.dimmer,.dimmerLight{ height:315px; }
+
 .contact{background-color:#e91e63}
 
 .refresh{background-color:#607d8b}
@@ -103,9 +105,9 @@
 
 .tiles.editMode .tile{outline: dashed 1px #DDD;}
 
-.icon{font-size:3em;line-height:3em;width:100%;margin-top:-1.5em;position:absolute;text-align:center;top:50%;white-space:nowrap}
+.icon{font-size:3em;width:100%;position:absolute;text-align:center;white-space:nowrap}
 
-.icon.text{font-size:1.8em;line-height:2em;width:100%;margin-top:-1em}
+.icon.text{font-size:1.8em;width:100%;}
 
 .icon span.text{font-size:.75em;margin-right:15px}
 
@@ -145,15 +147,23 @@
 
 /*div.ui-slider{height:21px}*/
 
-.ui-slider-track{margin:0!important}
+.full-width-slider.horz .ui-slider .ui-slider-track{margin:0!important}
 
 .full-width-slider{position:absolute;bottom:-2px;width:100%}
+
+.full-width-slider.vert{width: auto; left: 50%;}
 
 .full-width-slider input{display:none}
 
 .ui-slider-track.ui-mini .ui-slider-handle{height:20px;width:20px;margin:-11px 0 0 -11px}
 
 .ui-slider.ui-mini{padding:0 10px 0 12px}
+
+.full-width-slider.vert .ui-slider.ui-mini{ padding:0px; }
+
+.full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; }
+
+.full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
 
 .batt{content:"";background-image:url(battery.png);background-size:16px 16px;background-repeat:no-repeat;background-position:center center}
 
@@ -184,6 +194,8 @@
 .historyNav i{font-size:30pt;margin:5px 30px;cursor:pointer}
 
 .history-list{margin-top:50px}
+
+sup{vertical-align: super;font-size: smaller;}
 
 .theme-default{color:#fff}
 
@@ -233,7 +245,12 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .list.history-list .tile i, .theme-st .list.sort-ui .tile i {margin-right: 5px;clear:both;}
 
-.theme-st .list.history-list .ui-slider-handle.ui-btn.ui-shadow, .theme-st .list.sort-ui .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff;}
+.theme-st .list.history-list .ui-slider-handle.ui-btn.ui-shadow, .theme-st .list.sort-ui .ui-slider-handle.ui-btn.ui-shadow{
+	background-color: #fff;
+	border-color: #ddd;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
 
 .theme-st .list.history-list .tile.active .icon i.active, .theme-st .list.sort-ui .tile.active .icon i.active{color:7DBE63;}
 
@@ -259,7 +276,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .tile i {margin-right: 5px;}
 
-.theme-st .tiles .tile .icon {font-size: 3em;line-height: 3em;width: 100%;margin-top: -1.5em;position: absolute;text-align: center;top: 40%;white-space: nowrap;}
+.theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:.2em;}
 
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
