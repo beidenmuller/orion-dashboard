@@ -7,9 +7,7 @@ function thermostatEvent(t,e){
 	if(i < maxTemp && i > minTemp){ 
 		i += e;
 		
-		var deg = "&deg;".sup();
-		
-		t.find(".icon.setpoint").html( i ).append(deg);
+		t.find(".icon.setpoint").html( i + supDegree);
 	}
 	
 	t.attr("data-setpoint", i);
@@ -75,33 +73,29 @@ function renderSlider(t){
 }
 
 function renderValue(t){
-	var val = t.attr("data-value");
-	
-	console.log(val);
-	
-	val = val.replace(/°/g, "<sup>&deg;</sup>");
-	
-	console.log(val);
-
 	t.find(".icon").remove();
-	t.append("<div class='icon text'>" + val + "</div>");
+	t.append("<div class='icon text'>" + formatValue(t.attr("data-value")) + "</div>");
+}
+
+function formatValue(v){
+	if(v){
+		v = v.replace(/°/g, supDegree);
+	}
+	
+	return v;
 }
 
 function updateWeather(t,e){
-	var deg = "&deg;".sup();
-
-	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike).append(deg);
-	t.find(".icon.text").html(e.temperature).append(deg);
+	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike + supDegree);
+	t.find(".icon.text").html(e.temperature + supDegree);
 	t.find(".icon i").attr("class","wi " + e.icon);
 	t.find(".footer").html(e.localSunrise + ' <i class="fa fa-fw wi wi-horizon-alt"></i> ' + e.localSunset);
 	t.find(".footer.right").html(e.percentPrecip+"%<i class='fa fa-fw fa-umbrella'></i><br>" + e.humidity + "%<i class='fa fa-fw wi wi-sprinkles'></i>");
 }
 
 function updateThermostat(t,e){
-	var deg = "&deg;".sup();
-
-	t.find(".title2").html(e.temperature).append(deg).append(", " + e.thermostatOperatingState);
-	t.find(".icon.setpoint").html(e.setpoint).append(deg);
+	t.find(".title2").html(e.temperature + supDegree + ", " + e.thermostatOperatingState);
+	t.find(".icon.setpoint").html(e.setpoint + supDegree);
 	t.find(".footer").html("&#10044; " + e.thermostatFanMode + (e.humidity ? ",<i class='fa fa-fw wi wi-sprinkles'></i>" + e.humidity + "%" : ""));
 	
 	t.attr("data-setpoint", e.setpoint);
@@ -561,3 +555,4 @@ CoolClock.config.skins={
 
 var cellSize = getUrlParameter("t") || tileSize;
 var cellGutter = getUrlParameter("g") || 4;
+var supDegree = "<sup>&deg;</sup>";
