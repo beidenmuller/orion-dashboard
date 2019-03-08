@@ -141,7 +141,7 @@ function updateTile(t){
 		
 		switch(t.type){
 			case "music":
-				if (t.trackDescription != e.attr("data-track-description" || t.mute + "" != e.attr("data-mute")){ 
+				if (t.trackDescription != e.attr("data-track-description") || t.mute + "" != e.attr("data-mute")){ 
 					spinner(e);
 				}
 			
