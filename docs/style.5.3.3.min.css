@@ -14,7 +14,7 @@
 
 .dimmer,.dimmerLight,.light,.momentary,.switch,.themeLight{background-color:#4caf50}
 
-.dimmer,.dimmerLight{ height:315px !important; }
+.dimmer,.dimmerLight{ height:315px; }
 
 .contact{background-color:#e91e63}
 
