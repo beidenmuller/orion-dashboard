@@ -6,7 +6,7 @@ function thermostatEvent(t,e){
 	
 	if(i < maxTemp && i > minTemp){ 
 		i += e;
-		t.find(".icon.setpoint").html( i + "&deg;");
+		t.find(".icon.setpoint").html( i + "<sup>&deg;</sup>");
 	}
 	
 	t.attr("data-setpoint", i);
@@ -77,16 +77,16 @@ function renderValue(t){
 }
 
 function updateWeather(t,e){
-	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike + "&deg;");
-	t.find(".icon.text").html(e.temperature + "&deg;");
+	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike + "<sup>&deg;</sup>");
+	t.find(".icon.text").html(e.temperature + "<sup>&deg;</sup>");
 	t.find(".icon i").attr("class","wi " + e.icon);
 	t.find(".footer").html(e.localSunrise + ' <i class="fa fa-fw wi wi-horizon-alt"></i> ' + e.localSunset);
 	t.find(".footer.right").html(e.percentPrecip+"%<i class='fa fa-fw fa-umbrella'></i><br>" + e.humidity + "%<i class='fa fa-fw wi wi-sprinkles'></i>");
 }
 
 function updateThermostat(t,e){
-	t.find(".title2").html(e.temperature + "&deg;, " + e.thermostatOperatingState);
-	t.find(".icon.setpoint").html(e.setpoint + "&deg;");
+	t.find(".title2").html(e.temperature + "<sup>&deg;</sup>, " + e.thermostatOperatingState);
+	t.find(".icon.setpoint").html(e.setpoint + "<sup>&deg;</sup>");
 	t.find(".footer").html("&#10044; " + e.thermostatFanMode + (e.humidity ? ",<i class='fa fa-fw wi wi-sprinkles'></i>" + e.humidity + "%" : ""));
 	
 	t.attr("data-setpoint", e.setpoint);
