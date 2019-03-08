@@ -353,15 +353,9 @@ function initDashboard(target){
 			}
 		});
 		
-		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera").clickAndHold({
+		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera, .dimmer, .dimmerLight").clickAndHold({
 			holdThreshold: 750, 
-			onClick: function(){ 
-				var el = jQuery(this);  
-				
-				animateClick(el);				
-				el.closest(".tile").toggleClass("active");				
-				sendCommand(el.attr("data-type"), el.attr("data-device"), "toggle");
-			},
+			onClick: function(){},
 			onHold: function(){ 
 				var el = jQuery(this);                
 				var deviceId = el.attr("data-device");
@@ -371,17 +365,20 @@ function initDashboard(target){
 					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
 				}
 			}
-		});
-		
-		$(target).find(".tile.blank").clickAndHold({
-			holdThreshold: 3000, 
-			onClick: function(){},
-			onHold: function(){ 
-				jQuery.mobile.changePage( adminAuthUrl, { role: "dialog" } );
+		}).find(".icon").click(function(e,data){
+			var t = jQuery(this).closest(".tile");
+				
+			animateClick(t);
+			t.toggleClass("active");
+			
+			if(t.hasAttr("data-level")){
+				sendCommand(t.attr("data-type"), t.attr("data-device"), "toggle", t.attr("data-level"));
+			} else {
+				sendCommand(t.attr("data-type"), t.attr("data-device"), "toggle");
 			}
 		});
-	
-		$(target).find(".dimmer, .dimmerLight").clickAndHold({
+		
+		/*$(target).find(".dimmer, .dimmerLight").clickAndHold({
 			holdThreshold: 750, 
 			onClick: function(){ 
 				var el = jQuery(this);  
@@ -399,7 +396,7 @@ function initDashboard(target){
 					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
 				}
 			}
-		});
+		});*/
 	
 		$(target).find(".dimmer, .dimmerLight").on("slidestop", function(){
 			var t = $(this).find("input").val();
@@ -408,6 +405,14 @@ function initDashboard(target){
 			sendCommand($(this).attr("data-type"), $(this).attr("data-device"), "level", t);
 			
 			$(this).attr("data-level", t);
+		});
+		
+		$(target).find(".tile.blank").clickAndHold({
+			holdThreshold: 3000, 
+			onClick: function(){},
+			onHold: function(){ 
+				jQuery.mobile.changePage( adminAuthUrl, { role: "dialog" } );
+			}
 		});
 	
 		$(target).find(".music").on("slidestop", function(){
