@@ -45,7 +45,8 @@ function setIcons(target){
 	$(target).find(".presence").append("<div class='icon'>" + icons.presence.present + icons.presence.notPresent + "</div>");
 	$(target).find(".contact").append("<div class='icon'>" + icons.contact.open + icons.contact.closed + "</div>");
 	$(target).find(".water").append("<div class='icon'>" + icons.water.dry + icons.water.wet + "</div>");
-	$(target).find(".dimmer, .dimmerLight, .music").each(function(){ renderSlider($(this)); });
+	$(target).find(".dimmer, .dimmerLight").each(function(){ renderSlider($(this), true); });
+	$(target).find(".music").each(function(){ renderSlider($(this)); });
 	$(target).find(".momentary").append("<div class='icon'>" + icons.momentary + "</div>");
 	$(target).find(".camera").append("<div class='icon'>" + icons.camera + "</div>");
 	$(target).find(".refresh").append("<div class='icon'>" + icons.refresh + "</div>");
@@ -62,10 +63,12 @@ function setIcons(target){
 	$(target).find(".tile[data-is-value=true]").each(function(){ renderValue( $(this) ); });
 }
 
-function renderSlider(t){
+function renderSlider(t,v){
+	v = v || false;
+
 	t.find(".slider-container").remove();
 	
-	t.append("<div class='slider-container'><div class='full-width-slider'><input value='" + t.attr("data-level") + "' min='1' max='10' type='range' step='1' data-mini='true' data-popup-enabled='true' data-disabled='" + readOnlyMode + "' data-highlight='true' data-mini='true'></div></div>")
+	t.append("<div class='slider-container'><div class='full-width-slider'><input value='" + t.attr("data-level") + "' min='1' max='10' type='range' step='1' data-mini='true' data-vertical='" + v + "' data-popup-enabled='true' data-disabled='" + readOnlyMode + "' data-highlight='true' data-mini='true'></div></div>")
 		.find("input")
 		.slider();
 	
