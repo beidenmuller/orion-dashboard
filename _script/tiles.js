@@ -6,7 +6,8 @@ function thermostatEvent(t,e){
 	
 	if(i < maxTemp && i > minTemp){ 
 		i += e;
-		t.find(".icon.setpoint").html( i + "&deg;");
+		
+		t.find(".icon.setpoint").html( i + supDegree);
 	}
 	
 	t.attr("data-setpoint", i);
@@ -44,7 +45,8 @@ function setIcons(target){
 	$(target).find(".presence").append("<div class='icon'>" + icons.presence.present + icons.presence.notPresent + "</div>");
 	$(target).find(".contact").append("<div class='icon'>" + icons.contact.open + icons.contact.closed + "</div>");
 	$(target).find(".water").append("<div class='icon'>" + icons.water.dry + icons.water.wet + "</div>");
-	$(target).find(".dimmer, .dimmerLight, .music").each(function(){ renderSlider($(this)); });
+	$(target).find(".dimmer, .dimmerLight").each(function(){ renderSlider($(this), true); });
+	$(target).find(".music").each(function(){ renderSlider($(this)); });
 	$(target).find(".momentary").append("<div class='icon'>" + icons.momentary + "</div>");
 	$(target).find(".camera").append("<div class='icon'>" + icons.camera + "</div>");
 	$(target).find(".refresh").append("<div class='icon'>" + icons.refresh + "</div>");
@@ -61,10 +63,14 @@ function setIcons(target){
 	$(target).find(".tile[data-is-value=true]").each(function(){ renderValue( $(this) ); });
 }
 
-function renderSlider(t){
+function renderSlider(t,v){
+	v = v || false;
+
 	t.find(".slider-container").remove();
 	
-	t.append("<div class='slider-container'><div class='full-width-slider'><input value='" + t.attr("data-level") + "' min='1' max='10' type='range' step='1' data-mini='true' data-popup-enabled='true' data-disabled='" + readOnlyMode + "' data-highlight='true' data-mini='true'></div></div>")
+	var cls = (v == true) ? "vert" : "horiz";
+	
+	t.append("<div class='slider-container " + cls + "'><div class='full-width-slider " + cls + "'><input value='" + t.attr("data-level") + "' min='1' max='10' type='range' step='1' data-mini='true' data-vertical='" + v + "' data-popup-enabled='true' data-disabled='" + readOnlyMode + "' data-highlight='true' data-mini='true'></div></div>")
 		.find("input")
 		.slider();
 	
@@ -73,20 +79,29 @@ function renderSlider(t){
 
 function renderValue(t){
 	t.find(".icon").remove();
-	t.append("<div class='icon text'>" + t.attr("data-value") + "</div>");
+	t.append("<div class='icon text'>" + formatValue(t.attr("data-value")) + "</div>");
+}
+
+function formatValue(v){
+	if(v){
+		v = v.replace(/°/g, supDegree);
+	}
+	
+	return v;
 }
 
 function updateWeather(t,e){
-	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike + "&deg;");
-	t.find(".icon.text").html(e.temperature + "&deg;");
+console.log(e);
+	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike + supDegree);
+	t.find(".icon .text").html(e.temperature + supDegree);
 	t.find(".icon i").attr("class","wi " + e.icon);
 	t.find(".footer").html(e.localSunrise + ' <i class="fa fa-fw wi wi-horizon-alt"></i> ' + e.localSunset);
 	t.find(".footer.right").html(e.percentPrecip+"%<i class='fa fa-fw fa-umbrella'></i><br>" + e.humidity + "%<i class='fa fa-fw wi wi-sprinkles'></i>");
 }
 
 function updateThermostat(t,e){
-	t.find(".title2").html(e.temperature + "&deg;, " + e.thermostatOperatingState);
-	t.find(".icon.setpoint").html(e.setpoint + "&deg;");
+	t.find(".title2").html(e.temperature + supDegree + ", " + e.thermostatOperatingState);
+	t.find(".icon.setpoint").html(e.setpoint + supDegree);
 	t.find(".footer").html("&#10044; " + e.thermostatFanMode + (e.humidity ? ",<i class='fa fa-fw wi wi-sprinkles'></i>" + e.humidity + "%" : ""));
 	
 	t.attr("data-setpoint", e.setpoint);
@@ -174,7 +189,7 @@ function updateTile(t){
 				if(t.level != e.attr("data-level")){ spinner(e); }
 				
 				e.attr("data-level", t.level);
-				renderSlider(e);
+				renderSlider(e, true);
 				
 				break;
 			
@@ -546,3 +561,4 @@ CoolClock.config.skins={
 
 var cellSize = getUrlParameter("t") || tileSize;
 var cellGutter = getUrlParameter("g") || 4;
+var supDegree = "<sup>&deg;</sup>";
