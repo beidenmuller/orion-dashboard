@@ -233,7 +233,12 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .list.history-list .tile i, .theme-st .list.sort-ui .tile i {margin-right: 5px;clear:both;}
 
-.theme-st .list.history-list .ui-slider-handle.ui-btn.ui-shadow, .theme-st .list.sort-ui .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff;}
+.theme-st .list.history-list .ui-slider-handle.ui-btn.ui-shadow, .theme-st .list.sort-ui .ui-slider-handle.ui-btn.ui-shadow{
+	background-color: #fff;
+	border-color: #ddd;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
 
 .theme-st .list.history-list .tile.active .icon i.active, .theme-st .list.sort-ui .tile.active .icon i.active{color:7DBE63;}
 
