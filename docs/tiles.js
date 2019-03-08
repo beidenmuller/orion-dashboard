@@ -161,7 +161,7 @@ function updateTile(t){
 			case "thermostatHeat":
 			case "thermostatCool":
 				checkDataForUpdates(e,t);
-				updateThermostat(e,t));
+				updateThermostat(e,t);
 			
 				break;
 			case "weather": 
