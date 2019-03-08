@@ -145,7 +145,7 @@ function updateTile(t){
 					spinner(e);
 				}
 			
-				if (t.trackDescription != e.attr("data-track-description"){ e.attr("data-track-description", t.trackDescription); }
+				if (t.trackDescription != e.attr("data-track-description")){ e.attr("data-track-description", t.trackDescription); }
 				
 				if(t.mute + "" != e.attr("data-mute")){ e.toggleClass("muted"); }
 				
@@ -161,7 +161,7 @@ function updateTile(t){
 			case "thermostatHeat":
 			case "thermostatCool":
 				checkDataForUpdates(e,t);
-				updateThermostat(e,t));
+				updateThermostat(e,t);
 			
 				break;
 			case "weather": 
@@ -190,7 +190,7 @@ function updateTile(t){
 			} else {
 				e.removeClass("inactive active")
 					.addClass(t.active)
-					.attr("data-active",t.active));
+					.attr("data-active",t.active);
 			}
 		} 
 	} else if("mode" == t.tile){
@@ -235,7 +235,7 @@ function setWTFCloud(){
 }
 
 function clearWTFCloud(){
-	wtfCloud = false);
+	wtfCloud = false;
 	
 	$("#wtfcloud-popup").popup("close");
 }
@@ -403,7 +403,7 @@ function initDashboard(target){
 	
 		$(target).find(".dimmer, .dimmerLight").on("slidestop", function(){
 			var t = $(this).find("input").val();
-			if($(this).hasClass("active")) { (animateClick($(this)); };
+			if($(this).hasClass("active")) { animateClick($(this)); };
 			
 			sendCommand($(this).attr("data-type"), $(this).attr("data-device"), "level", t);
 			
@@ -506,7 +506,7 @@ function initDashboard(target){
 		void $(target).find(".thermostatHeat .down, .thermostatCool .down").click(function(){ 
 			thermostatEvent( $(this).closest(".tile"), -1 )
 		});
-	)
+	}
 };
 
 var fadeOn = 100;
