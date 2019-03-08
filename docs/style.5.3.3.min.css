@@ -103,7 +103,7 @@
 
 .tiles.editMode .tile{outline: dashed 1px #DDD;}
 
-.icon{font-size:3em;line-height:3em;width:100%;margin-top:-1.5em;position:absolute;text-align:center;top:50%;white-space:nowrap}
+.icon{font-size:3em;width:100%;position:absolute;text-align:center;white-space:nowrap}
 
 .icon.text{font-size:1.8em;line-height:2em;width:100%;margin-top:-1em}
 
@@ -264,7 +264,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .tile i {margin-right: 5px;}
 
-.theme-st .tiles .tile .icon {font-size: 3em;line-height: 3em;width: 100%;margin-top: -1.5em;position: absolute;text-align: center;top: 40%;white-space: nowrap;}
+.theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;}
 
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
