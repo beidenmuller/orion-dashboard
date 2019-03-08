@@ -68,7 +68,9 @@ function renderSlider(t,v){
 
 	t.find(".slider-container").remove();
 	
-	t.append("<div class='slider-container'><div class='full-width-slider'><input value='" + t.attr("data-level") + "' min='1' max='10' type='range' step='1' data-mini='true' data-vertical='" + v + "' data-popup-enabled='true' data-disabled='" + readOnlyMode + "' data-highlight='true' data-mini='true'></div></div>")
+	var cls = (v == true) ? "vert" : "horiz";
+	
+	t.append("<div class='slider-container " + cls + "'><div class='full-width-slider " + cls + "'><input value='" + t.attr("data-level") + "' min='1' max='10' type='range' step='1' data-mini='true' data-vertical='" + v + "' data-popup-enabled='true' data-disabled='" + readOnlyMode + "' data-highlight='true' data-mini='true'></div></div>")
 		.find("input")
 		.slider();
 	
