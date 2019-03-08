@@ -506,7 +506,7 @@ function initDashboard(target){
 		void $(target).find(".thermostatHeat .down, .thermostatCool .down").click(function(){ 
 			thermostatEvent( $(this).closest(".tile"), -1 )
 		});
-	)
+	}
 };
 
 var fadeOn = 100;
