@@ -122,9 +122,10 @@ function doPoll(t){
 	$.get("ping",a)
 		.done(function(e){
 			if("refresh" == e.status && t){
-				refresh();
+				refresh();				
 				clearWTFCloud();
-				t();
+				
+				if (typeof t == "function") { t.call(this); }				
 			} else if(stateTS = e.ts && "update" == e.status) {
 				$(".refresh .footer").html("Updated " + e.updated);
 			}
