@@ -78,9 +78,13 @@ function renderValue(t){
 	var val = t.attr("data-value");
 	
 	console.log(val);
+	
+	val = val.replace(/°/g, "<sup>&deg;</sup>");
+	
+	console.log(val);
 
 	t.find(".icon").remove();
-	t.append("<div class='icon text'>" + t.attr("data-value") + "</div>");
+	t.append("<div class='icon text'>" + val + "</div>");
 }
 
 function updateWeather(t,e){
