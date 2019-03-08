@@ -86,6 +86,7 @@ function formatValue(v){
 }
 
 function updateWeather(t,e){
+console.log(e);
 	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike + supDegree);
 	t.find(".icon .text").html(e.temperature + supDegree);
 	t.find(".icon i").attr("class","wi " + e.icon);
