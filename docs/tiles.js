@@ -145,7 +145,7 @@ function updateTile(t){
 					spinner(e);
 				}
 			
-				if (t.trackDescription != e.attr("data-track-description"){ e.attr("data-track-description", t.trackDescription); }
+				if (t.trackDescription != e.attr("data-track-description")){ e.attr("data-track-description", t.trackDescription); }
 				
 				if(t.mute + "" != e.attr("data-mute")){ e.toggleClass("muted"); }
 				
