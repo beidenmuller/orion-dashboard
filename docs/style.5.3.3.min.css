@@ -185,6 +185,8 @@
 
 .history-list{margin-top:50px}
 
+sup{vertical-align: super;font-size: smaller;}
+
 .theme-default{color:#fff}
 
 .theme-slate .tile{background-color:#333}
