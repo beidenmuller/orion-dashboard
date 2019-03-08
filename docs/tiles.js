@@ -235,7 +235,7 @@ function setWTFCloud(){
 }
 
 function clearWTFCloud(){
-	wtfCloud = false);
+	wtfCloud = false;
 	
 	$("#wtfcloud-popup").popup("close");
 }
