@@ -161,7 +161,7 @@
 
 .full-width-slider.vert .ui-slider.ui-mini{ padding:0px; }
 
-.full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; }
+.full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; height: 200px !important; }
 
 .full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
 
