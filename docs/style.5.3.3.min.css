@@ -16,6 +16,12 @@
 
 .dimmer,.dimmerLight{ height:315px; }
 
+.dimmer .icon.cmd, .dimmerLight .icon.cmd { top: auto; bottom: 1.5%; font-size: 2.5em; }
+
+.dimmer .title, .dimmerLight .title { top: 2%; }
+
+.dimmer .ui-slider, .dimmerLight .ui-slider { margin-bottom: 270px !important; }
+
 .contact{background-color:#e91e63}
 
 .refresh{background-color:#607d8b}
