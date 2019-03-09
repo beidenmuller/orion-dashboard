@@ -380,7 +380,7 @@ function initDashboard(target){
 					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
 				}
 			}
-		}).find(".icon").click(function(e,data){
+		}).find(".icon.cmd").click(function(e,data){
 			var t = jQuery(this).closest(".tile");
 				
 			animateClick(t);
