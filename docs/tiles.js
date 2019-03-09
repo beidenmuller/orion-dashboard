@@ -34,12 +34,12 @@ function spinner(t){
 }
 
 function setIcons(target){
-	$(target).find(".switch").append("<div class='icon'>" + icons["switch"].on + icons["switch"].off + "</div>");
-	$(target).find(".dimmer").append("<div class='icon'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
-	$(target).find(".light").append("<div class='icon'>" + icons.light.on + icons.light.off + "</div>");
-	$(target).find(".dimmerLight").append("<div class='icon'>" + icons.light.on + icons.light.off + "</div>");
-	$(target).find(".themeLight").append("<div class='icon'>" + icons.themeLight.on + icons.themeLight.off + "</div>");
-	$(target).find(".lock").append("<div class='icon'>" + icons.lock.locked + icons.lock.unlocked + "</div>");
+	$(target).find(".switch").append("<div class='icon cmd'>" + icons["switch"].on + icons["switch"].off + "</div>");
+	$(target).find(".dimmer").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
+	$(target).find(".light").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
+	$(target).find(".dimmerLight").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
+	$(target).find(".themeLight").append("<div class='icon cmd'>" + icons.themeLight.on + icons.themeLight.off + "</div>");
+	$(target).find(".lock").append("<div class='icon cmd'>" + icons.lock.locked + icons.lock.unlocked + "</div>");
 	$(target).find(".motion").append("<div class='icon'>" + icons.motion.active + icons.motion.inactive + "</div>");
 	$(target).find(".acceleration").append("<div class='icon'>" + icons.acceleration.active + icons.acceleration.inactive + "</div>");
 	$(target).find(".presence").append("<div class='icon'>" + icons.presence.present + icons.presence.notPresent + "</div>");
@@ -48,10 +48,10 @@ function setIcons(target){
 	$(target).find(".dimmer, .dimmerLight").each(function(){ renderSlider($(this), true); });
 	$(target).find(".music").each(function(){ renderSlider($(this)); });
 	$(target).find(".momentary").append("<div class='icon'>" + icons.momentary + "</div>");
-	$(target).find(".camera").append("<div class='icon'>" + icons.camera + "</div>");
+	$(target).find(".camera").append("<div class='icon cmd'>" + icons.camera + "</div>");
 	$(target).find(".refresh").append("<div class='icon'>" + icons.refresh + "</div>");
 	$(target).find(".history").append("<div class='icon'>" + icons.history + "</div>");
-	$(target).find(".hello-home").append("<div class='icon'>" + icons["hello-home"] + "</div>");
+	$(target).find(".hello-home").append("<div class='icon cmd'>" + icons["hello-home"] + "</div>");
 	$(target).find(".humidity").append("<div class='footer'>" + icons.humidity + "</div>");
 	$(target).find(".luminosity").append("<div class='footer'>" + icons.luminosity + "</div>");
 	$(target).find(".temperature").append("<div class='footer'>" + icons.temperature + "</div>");
