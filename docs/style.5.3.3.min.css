@@ -57,10 +57,10 @@
 
 .full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; height: 200px; }
 
-.tile.sz-.full-width-slider.vert .ui-slider .ui-slider-track, .tile.sz-small.full-width-slider.vert .ui-slider .ui-slider-track{ height: 141px !important; }
-.tile.sz-medium.full-width-slider.vert .ui-slider .ui-slider-track{ height: 161px !important; }
-.tile.sz-large.full-width-slider.vert .ui-slider .ui-slider-track{ height: 201px !important; }
-.tile.sz-x-large.full-width-slider.vert .ui-slider .ui-slider-track{ height: 268px !important; }
+.tile.sz- .full-width-slider.vert .ui-slider .ui-slider-track, .tile.sz-small .full-width-slider.vert .ui-slider .ui-slider-track{ height: 141px !important; }
+.tile.sz-medium .full-width-slider.vert .ui-slider .ui-slider-track{ height: 161px !important; }
+.tile.sz-large .full-width-slider.vert .ui-slider .ui-slider-track{ height: 201px !important; }
+.tile.sz-x-large .full-width-slider.vert .ui-slider .ui-slider-track{ height: 268px !important; }
 
 .full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
 
