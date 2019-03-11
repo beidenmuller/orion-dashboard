@@ -2,7 +2,7 @@
 
 .tile{background-color:grey}
 
-.tile.sz-small{ width: 105px; height: 105px; }
+.tile.sz-small, .tile.sz-{ width: 105px; height: 105px; }
 
 .tile.sz-medium{ width: 120px; height: 120px; }
 
