@@ -268,13 +268,13 @@ function updateTile(t){
 					.attr("data-active",t.active);
 					
 				//TODO: check for switch
-				var switch = e.find(".switch-container select");
+				var cmdSwitch = e.find(".switch-container select");
 				
-				if(switch.length){
-					switch.off("change")
-					.val(t.value)
-					.flipswitch("refresh")
-					.on("change", processCmdAction);
+				if(cmdSwitch.length){
+					cmdSwitch.off("change")
+						.val(t.value)
+						.flipswitch("refresh")
+						.on("change", processCmdAction);
 				}
 			}
 		} 
