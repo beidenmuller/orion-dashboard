@@ -207,7 +207,9 @@
 
 .music.active .play,.music.muted .unmuted,.music:not(.active) .pause,.music:not(.muted) .muted{display:none}
 
-.music i{cursor:pointer}ul{list-style-type:none;padding-left:0}.item{cursor:grab;padding:5px;margin:8px;border-radius:2px;font-size:16pt}
+.music i{cursor:pointer}
+
+ul{list-style-type:none;padding-left:0}.item{cursor:grab;padding:5px;margin:8px;border-radius:2px;font-size:16pt}
 
 .list{width:300px;margin:0 auto}
 
@@ -273,7 +275,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .list.history-list .tile, .theme-st .list.sort-ui .tile{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
-.theme-st .list.history-list .tile i, .theme-st .list.sort-ui .tile i {margin-right: 5px;clear:both;}
+.theme-st .list.history-list .tile i, .theme-st .list.sort-ui .tile i {/*margin-right: 5px;*/clear:both;}
 
 .theme-st .list.history-list .ui-slider-handle.ui-btn.ui-shadow, .theme-st .list.sort-ui .ui-slider-handle.ui-btn.ui-shadow{
 	background-color: #fff;
@@ -304,7 +306,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .tile.weather .title2{top: 60%;font-size: 65%;padding-right: 7px;}
 
-.theme-st .tiles .tile i {margin-right: 5px;}
+.theme-st .tiles .tile i {/*margin-right: 5px;*/}
 
 .theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:.2em;}
 
