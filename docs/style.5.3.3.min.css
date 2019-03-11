@@ -2,6 +2,24 @@
 
 .tile{background-color:grey}
 
+.tile.sz-small{ width: 105px; height: 105px; }
+
+.tile.sz-medium{ width: 120px; height: 120px; }
+
+.tile.sz-large{ width: 150px; height: 150px; }
+
+.tile.sz-x-large{ width: 200px; height: 200px; }
+
+.tile.sz-small.w2{ width: 210px; }
+.tile.sz-medium.w2{ width: 240px; }
+.tile.sz-large.w2{ width: 300px; }
+.tile.sz-x-large.w2{ width: 400px; }
+
+.tile.sz-small.h2{ height: 210px; }
+.tile.sz-medium.h2{ height: 240px; }
+.tile.sz-large.h2{ height: 300px; }
+.tile.sz-x-large.h2{ height: 400px; }
+
 .weather{background-color:#a20025}
 
 .clock{background-color:#607d8b}
