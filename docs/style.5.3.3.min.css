@@ -36,9 +36,9 @@
 
 .dimmer .title, .dimmerLight .title { top: 2% !important; bottom: auto !important; }
 
-.tile.sz-.dimmer .ui-slider, .tile.sz-.dimmerLight .ui-slider, .tile.sz-small.dimmer .ui-slider, .tile.sz-small.dimmerLight .ui-slider { margin-bottom: 189px !important; }
-.tile.sz-medium.dimmer .ui-slider, .tile.sz-medium.dimmerLight .ui-slider { margin-bottom: 216px !important; }
-.tile.sz-large.dimmer .ui-slider, .tile.sz-large.dimmerLight .ui-slider { margin-bottom: 270px !important; }
+.tile.sz-.dimmer .ui-slider, .tile.sz-.dimmerLight .ui-slider, .tile.sz-small.dimmer .ui-slider, .tile.sz-small.dimmerLight .ui-slider { margin-bottom: 178px !important; }
+.tile.sz-medium.dimmer .ui-slider, .tile.sz-medium.dimmerLight .ui-slider { margin-bottom: 210px !important; }
+.tile.sz-large.dimmer .ui-slider, .tile.sz-large.dimmerLight .ui-slider { margin-bottom: 255px !important; }
 .tile.sz-x-large.dimmer .ui-slider, .tile.sz-x-large.dimmerLight .ui-slider { margin-bottom: 360px !important; }
 
 .full-width-slider.horz .ui-slider .ui-slider-track{margin:0!important}
