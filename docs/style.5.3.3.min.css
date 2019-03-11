@@ -64,6 +64,8 @@
 
 .full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
 
+.switch-container{ text-align: center; }
+
 .ui-flipswitch{ font-size: 18px; }
 
 .contact{background-color:#e91e63}
