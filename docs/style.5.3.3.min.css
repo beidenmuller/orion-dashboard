@@ -314,6 +314,24 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
+.theme-st .tiles .full-width-slider.vert .ui-slider-bg {
+	background-color: #1BBEFF; 
+	background-image: linear-gradient(top, #1BBEFF 0%, #059 100%); 
+	background-image: -o-linear-gradient(top, #1BBEFF 0%, #059 100%); 
+	background-image: -moz-linear-gradient(top, #1BBEFF 0%, #059 100%); 
+	background-image: -webkit-linear-gradient(top, #1BBEFF 0%, #059 100%); 
+	background-image: -ms-linear-gradient(top, #1BBEFF 0%, #059 100%);
+}
+
+.theme-st .tiles .full-width-slider.horz .ui-slider-bg {
+	background-color: #1BBEFF; 
+	background-image: linear-gradient(left, #1BBEFF 0%, #059 100%); 
+	background-image: -o-linear-gradient(left, #1BBEFF 0%, #059 100%); 
+	background-image: -moz-linear-gradient(left, #1BBEFF 0%, #059 100%); 
+	background-image: -webkit-linear-gradient(left, #1BBEFF 0%, #059 100%); 
+	background-image: -ms-linear-gradient(left, #1BBEFF 0%, #059 100%);
+}
+
 .theme-st .tiles .tile.active .icon i.active{color:#1BBEFF}
 
 .theme-st .tiles.editMode .tile{outline: dashed 2px #1BBEFF;border-color: #1BBEFF;color: #1BBEFF !important;}
