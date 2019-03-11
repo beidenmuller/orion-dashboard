@@ -122,8 +122,11 @@ function renderSwitch(t, v, onVal, offVal){
 		})
 		.addClass("switch cmd");
 	
-	sel.append("<option/>").attr("value", onVal).text(onVal);
-	sel.append("<option/>").attr("value", offVal).text(offVal);
+	var optOn = $("<option/>").attr("value", onVal).text(onVal);
+	var optOff = $("<option/>").attr("value", offVal).text(offVal);
+	
+	sel.append(optOn);
+	sel.append(optOff);
 	
 	container.append(sel);
 	
