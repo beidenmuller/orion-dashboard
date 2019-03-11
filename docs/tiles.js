@@ -36,7 +36,9 @@ function spinner(t){
 function setIcons(target){
 	$(target).find(".switch").append("<div class='icon cmd'>" + icons["switch"].on + icons["switch"].off + "</div>");
 	$(target).find(".dimmer").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
-	$(target).find(".light").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
+	//$(target).find(".light").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
+	
+	$(target).find(".light").each(function(index,item){ renderSwitch($(item), false, "ON", "OFF"); });
 	$(target).find(".dimmerLight").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
 	$(target).find(".themeLight").append("<div class='icon cmd'>" + icons.themeLight.on + icons.themeLight.off + "</div>");
 	$(target).find(".lock").append("<div class='icon cmd'>" + icons.lock.locked + icons.lock.unlocked + "</div>");
@@ -45,8 +47,8 @@ function setIcons(target){
 	$(target).find(".presence").append("<div class='icon'>" + icons.presence.present + icons.presence.notPresent + "</div>");
 	$(target).find(".contact").append("<div class='icon'>" + icons.contact.open + icons.contact.closed + "</div>");
 	$(target).find(".water").append("<div class='icon'>" + icons.water.dry + icons.water.wet + "</div>");
-	$(target).find(".dimmer, .dimmerLight").each(function(){ renderSlider($(this), true); });
-	$(target).find(".music").each(function(){ renderSlider($(this)); });
+	$(target).find(".dimmer, .dimmerLight").each(function(index,item){ renderSlider($(item)); });
+	$(target).find(".music").each(function(index,item){ renderSlider($(item)); });
 	$(target).find(".momentary").append("<div class='icon'>" + icons.momentary + "</div>");
 	$(target).find(".camera").append("<div class='icon cmd'>" + icons.camera + "</div>");
 	$(target).find(".refresh").append("<div class='icon'>" + icons.refresh + "</div>");
@@ -70,11 +72,56 @@ function renderSlider(t,v){
 	
 	var cls = (v == true) ? "vert" : "horiz";
 	
-	t.append("<div class='slider-container " + cls + "'><div class='full-width-slider " + cls + "'><input value='" + t.attr("data-level") + "' min='1' max='10' type='range' step='1' data-mini='true' data-vertical='" + v + "' data-popup-enabled='true' data-disabled='" + readOnlyMode + "' data-highlight='true' data-mini='true'></div></div>")
-		.find("input")
-		.slider();
+	var container = $("<div/>").addClass("slider-container " + cls);
 	
-	$(".full-width-slider").click(function(t){ t.stopImmediatePropagation(); });
+	var fws = $("<div/>").addClass("full-width-slider " + cls);
+	
+	var input = $("<input/>")
+		.val(t.attr("data-level"))
+		.attr({
+			"min": 1, 
+			"max": 10, 
+			"type": "range", 
+			"step": 1, 
+			"data-mini": true, 
+			"data-vertical": v, 
+			"data-popup-enabled": true, 
+			"data-disabled": readOnly, 
+			"data-highlight": true
+		});
+	
+	fws.append(input);
+	container.append(fws);
+	
+	t.append(container).find("input").slider();
+	
+	fws.click(function(t){ t.stopImmediatePropagation(); });
+}
+
+function renderSwitch(t, v, onVal, offVal){
+	v = v || false;
+	
+	onVal = onVal || "On";	
+	offVal = offVal || "Off";
+
+	t.find(".switch-container").remove();
+	
+	var cls = (v == true) ? "vert" : "horiz";
+	
+	var container = $("<div/>").addClass("switch-container " + cls);
+	
+	var sel = $("<select/>")
+		.attr({ "data-role": "flipswitch" })
+		.addClass("switch cmd");
+	
+	sel.append("<option/>").attr("value", onVal).text(onVal);
+	sel.append("<option/>").attr("value", offVal).text(offVal);
+	
+	container.append(sel);
+	
+	t.append(sel).find("select").flipswitch();
+	
+	container.click(function(t){ t.stopImmediatePropagation(); });
 }
 
 function renderValue(t){
@@ -198,7 +245,7 @@ function updateTile(t){
 		if (t.value != e.attr("data-value")) {
 			spinner(e);
 			
-			e.attr("data-value",t.value);
+			e.attr("data-value", t.value);
 			
 			if(t.isValue){ 
 				renderValue(e); 
@@ -206,6 +253,8 @@ function updateTile(t){
 				e.removeClass("inactive active")
 					.addClass(t.active)
 					.attr("data-active",t.active);
+					
+				//TODO: check for switch
 			}
 		} 
 	} else if("mode" == t.tile){
@@ -380,18 +429,10 @@ function initDashboard(target){
 					jQuery.mobile.changePage( deviceDetailUrl, { role: "dialog", data: { "device": deviceId, "type": deviceType } } );
 				}
 			}
-		}).find(".icon.cmd").click(function(e,data){
-			var t = jQuery(this).closest(".tile");
-				
-			animateClick(t);
-			t.toggleClass("active");
-			
-			if(t.hasAttr("data-level")){
-				sendCommand(t.attr("data-type"), t.attr("data-device"), "toggle", t.attr("data-level"));
-			} else {
-				sendCommand(t.attr("data-type"), t.attr("data-device"), "toggle");
-			}
 		});
+		
+		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera, .dimmer, .dimmerLight").find(".icon.cmd").click(processCmdAction)
+		$(target).find(".switch, .light, .lock, .momentary, .themeLight, .camera, .dimmer, .dimmerLight").find(".switch.cmd").change(processCmdAction);
 		
 		/*$(target).find(".dimmer, .dimmerLight").clickAndHold({
 			holdThreshold: 750, 
@@ -528,6 +569,23 @@ function initDashboard(target){
 		});
 	}
 };
+
+function processCmdAction(e,data){
+	var el = jQuery(e.delegateTarget);
+
+	var t = el.closest(".tile");
+	
+	if(el.hasClass("icon"){
+		animateClick(t);
+		t.toggleClass("active");
+	}
+	
+	if(t.hasAttr("data-level")){
+		sendCommand(t.attr("data-type"), t.attr("data-device"), "toggle", t.attr("data-level"));
+	} else {
+		sendCommand(t.attr("data-type"), t.attr("data-device"), "toggle");
+	}
+}
 
 var fadeOn = 100;
 var fadeOff = 200;
