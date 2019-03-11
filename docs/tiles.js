@@ -87,7 +87,7 @@ function renderSlider(t,v){
 			"data-mini": true, 
 			"data-vertical": v, 
 			"data-popup-enabled": true, 
-			"data-disabled": readOnly, 
+			"data-disabled": readOnlyMode, 
 			"data-highlight": true
 		});
 	
@@ -112,7 +112,11 @@ function renderSwitch(t, v, onVal, offVal){
 	var container = $("<div/>").addClass("switch-container " + cls);
 	
 	var sel = $("<select/>")
-		.attr({ "data-role": "flipswitch" })
+		.attr({ 
+			"data-role": "flipswitch", 
+			"data-disabled": readOnlyMode,
+			"data-vertical": v 
+		})
 		.addClass("switch cmd");
 	
 	sel.append("<option/>").attr("value", onVal).text(onVal);
