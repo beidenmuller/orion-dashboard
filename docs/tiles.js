@@ -125,9 +125,9 @@ function renderSwitch(t, v, onVal, offVal){
 	var optOn = $("<option/>").attr("value", onVal).text(onVal);
 	var optOff = $("<option/>").attr("value", offVal).text(offVal);
 	
-	sel.append(optOn);
 	sel.append(optOff);
-	console.log(t.attr("data-value"));
+	sel.append(optOn);
+	
 	sel.val(t.attr("data-value"));
 	
 	container.append(sel);
@@ -151,7 +151,6 @@ function formatValue(v){
 }
 
 function updateWeather(t,e){
-console.log(e);
 	t.find(".title2").html(e.weather + ", feels like " + e.feelsLike + supDegree);
 	t.find(".icon .text").html(e.temperature + supDegree);
 	t.find(".icon i").attr("class","wi " + e.icon);
@@ -254,7 +253,7 @@ function updateTile(t){
 				break;
 			
 		}
-		console.log(t.value);
+		
 		if (t.value != e.attr("data-value")) {
 			spinner(e);
 			
