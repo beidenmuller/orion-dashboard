@@ -254,7 +254,7 @@ function updateTile(t){
 				break;
 			
 		}
-		
+		console.log(t.value);
 		if (t.value != e.attr("data-value")) {
 			spinner(e);
 			
@@ -586,7 +586,7 @@ function initDashboard(target){
 
 function processCmdAction(e,data){
 	var el = jQuery(e.delegateTarget);
-
+	console.log("process action");
 	var t = el.closest(".tile");
 	
 	if(el.hasClass("icon")){
