@@ -37,9 +37,32 @@
 .dimmer .title, .dimmerLight .title { top: 2% !important; bottom: auto !important; }
 
 .tile.sz-.dimmer .ui-slider, .tile.sz-.dimmerLight .ui-slider, .tile.sz-small.dimmer .ui-slider, .tile.sz-small.dimmerLight .ui-slider { margin-bottom: 189px !important; }
-.tile.sz-medium.dimmer .ui-slider, .tile.sz-medium.dimmerLight .ui-slider { margin-bottom: 216px !important; }
+.tile.sz-medium.dimmer .ui-slider, .tile.sz-medium.dimmerLight .ui-slider { margin-bottom: 240px !important; }
 .tile.sz-large.dimmer .ui-slider, .tile.sz-large.dimmerLight .ui-slider { margin-bottom: 270px !important; }
 .tile.sz-x-large.dimmer .ui-slider, .tile.sz-x-large.dimmerLight .ui-slider { margin-bottom: 360px !important; }
+
+.full-width-slider.horz .ui-slider .ui-slider-track{margin:0!important}
+
+.full-width-slider{position:absolute;bottom:-2px;width:100%}
+
+.full-width-slider.vert{width: auto; left: 50%;}
+
+.full-width-slider input{display:none}
+
+.ui-slider-track.ui-mini .ui-slider-handle{height:20px;width:20px;margin:-11px 0 0 -11px}
+
+.ui-slider.ui-mini{padding:0 10px 0 12px}
+
+.full-width-slider.vert .ui-slider.ui-mini{ padding:0px; }
+
+.full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; height: 200px; }
+
+.tile.sz-.full-width-slider.vert .ui-slider .ui-slider-track, .tile.sz-small.full-width-slider.vert .ui-slider .ui-slider-track{ height: 141px !important; }
+.tile.sz-medium.full-width-slider.vert .ui-slider .ui-slider-track{ height: 161px !important; }
+.tile.sz-large.full-width-slider.vert .ui-slider .ui-slider-track{ height: 201px !important; }
+.tile.sz-x-large.full-width-slider.vert .ui-slider .ui-slider-track{ height: 268px !important; }
+
+.full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
 
 .contact{background-color:#e91e63}
 
@@ -171,29 +194,6 @@
 .ui-slider-popup{height:12px;width:18px;padding-top:0;padding-bottom:2px;font-size:12px}
 
 /*div.ui-slider{height:21px}*/
-
-.full-width-slider.horz .ui-slider .ui-slider-track{margin:0!important}
-
-.full-width-slider{position:absolute;bottom:-2px;width:100%}
-
-.full-width-slider.vert{width: auto; left: 50%;}
-
-.full-width-slider input{display:none}
-
-.ui-slider-track.ui-mini .ui-slider-handle{height:20px;width:20px;margin:-11px 0 0 -11px}
-
-.ui-slider.ui-mini{padding:0 10px 0 12px}
-
-.full-width-slider.vert .ui-slider.ui-mini{ padding:0px; }
-
-.full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; height: 200px !important; }
-
-.tile.sz-.full-width-slider.vert .ui-slider .ui-slider-track, .tile.sz-small.full-width-slider.vert .ui-slider .ui-slider-track{ height: 141px !important; }
-.tile.sz-medium.full-width-slider.vert .ui-slider .ui-slider-track{ height: 161px !important; }
-.tile.sz-large.full-width-slider.vert .ui-slider .ui-slider-track{ height: 201px !important; }
-.tile.sz-x-large.full-width-slider.vert .ui-slider .ui-slider-track{ height: 268px !important; }
-
-.full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
 
 .batt{content:"";background-image:url(battery.png);background-size:16px 16px;background-repeat:no-repeat;background-position:center center}
 
