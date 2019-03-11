@@ -132,7 +132,7 @@ function renderSwitch(t, v, onVal, offVal){
 	
 	container.append(sel);
 	
-	t.append(sel).find("select").flipswitch();
+	t.append(container).find("select").flipswitch();
 	
 	container.click(function(t){ t.stopImmediatePropagation(); });
 }
