@@ -111,7 +111,7 @@
 
 .icon{font-size:3em;width:100%;position:absolute;text-align:center;white-space:nowrap}
 
-.icon.text{font-size:1.8em;width:100%;top:0 !important;}
+.icon.text{font-size:1.8em;width:100%;}
 
 .icon span.text{font-size:.75em;margin-right:15px}
 
@@ -199,7 +199,7 @@
 
 .history-list{margin-top:50px}
 
-sup{vertical-align: super;font-size: 50%;}
+sup{vertical-align: super;font-size: 40%;}
 
 .theme-default{color:#fff}
 
