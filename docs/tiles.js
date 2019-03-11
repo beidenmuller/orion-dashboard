@@ -268,6 +268,7 @@ function updateTile(t){
 					.attr("data-active",t.active);
 					
 				//TODO: check for switch
+				e.find(".switch-container select").val(t.value);
 			}
 		} 
 	} else if("mode" == t.tile){
