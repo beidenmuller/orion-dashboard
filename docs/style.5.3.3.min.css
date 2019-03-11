@@ -306,7 +306,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .tile.weather .title2{top: 60%;font-size: 65%;padding-right: 7px;}
 
-.theme-st .tiles .tile i {/*margin-right: 5px;*/}
+.theme-st .tiles .tile i {/*margin-right: 5px;*/ border-radius: 2px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);}
 
 .theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:.2em;}
 
