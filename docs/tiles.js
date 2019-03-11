@@ -128,6 +128,8 @@ function renderSwitch(t, v, onVal, offVal){
 	sel.append(optOn);
 	sel.append(optOff);
 	
+	sel.val(t.attr("data-value"));
+	
 	container.append(sel);
 	
 	t.append(sel).find("select").flipswitch();
