@@ -33,12 +33,13 @@ function spinner(t){
 		.fadeOut("slow");
 }
 
-function setIcons(target){
-	$(target).find(".switch").append("<div class='icon cmd'>" + icons["switch"].on + icons["switch"].off + "</div>");
-	$(target).find(".dimmer").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
+function setIcons(target){	
+	//$(target).find(".dimmer").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
 	//$(target).find(".light").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
 	
+	$(target).find(".switch").each(function(index,item){ renderSwitch($(item), false, "ON", "OFF"); });
 	$(target).find(".light").each(function(index,item){ renderSwitch($(item), false, "ON", "OFF"); });
+	
 	$(target).find(".dimmerLight").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
 	$(target).find(".themeLight").append("<div class='icon cmd'>" + icons.themeLight.on + icons.themeLight.off + "</div>");
 	$(target).find(".lock").append("<div class='icon cmd'>" + icons.lock.locked + icons.lock.unlocked + "</div>");
@@ -575,7 +576,7 @@ function processCmdAction(e,data){
 
 	var t = el.closest(".tile");
 	
-	if(el.hasClass("icon"){
+	if(el.hasClass("icon")){
 		animateClick(t);
 		t.toggleClass("active");
 	}
