@@ -37,8 +37,8 @@ function setIcons(target){
 	//$(target).find(".dimmer").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
 	//$(target).find(".light").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
 	
-	$(target).find(".switch").each(function(){ renderSwitch($(this), false, "ON", "OFF"); });
-	$(target).find(".light").each(function(){ renderSwitch($(this), false, "ON", "OFF"); });
+	$(target).find(".switch").each(function(){ renderSwitch($(this), false, "on", "off"); });
+	$(target).find(".light").each(function(){ renderSwitch($(this), false, "on", "off"); });
 	
 	$(target).find(".dimmer, .dimmerLight").each(function(){ renderSlider($(this), true); });
 	$(target).find(".music").each(function(){ renderSlider($(item)); });
@@ -105,8 +105,8 @@ function renderSlider(t,v){
 function renderSwitch(t, v, onVal, offVal){
 	v = v || false;
 	
-	onVal = onVal || "On";	
-	offVal = offVal || "Off";
+	onVal = onVal || "on";	
+	offVal = offVal || "off";
 
 	t.find(".switch-container").remove();
 	
