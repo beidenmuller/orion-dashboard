@@ -37,11 +37,11 @@ function setIcons(target){
 	//$(target).find(".dimmer").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
 	//$(target).find(".light").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
 	
-	$(target).find(".switch").each(function(index,item){ renderSwitch($(item), false, "ON", "OFF"); });
-	$(target).find(".light").each(function(index,item){ renderSwitch($(item), false, "ON", "OFF"); });
+	$(target).find(".switch").each(function(){ renderSwitch($(this), false, "ON", "OFF"); });
+	$(target).find(".light").each(function(){ renderSwitch($(this), false, "ON", "OFF"); });
 	
-	$(target).find(".dimmer, .dimmerLight").each(function(index,item){ renderSlider($(item), true); });
-	$(target).find(".music").each(function(index,item){ renderSlider($(item)); });
+	$(target).find(".dimmer, .dimmerLight").each(function(){ renderSlider($(this), true); });
+	$(target).find(".music").each(function(){ renderSlider($(item)); });
 	
 	//$(target).find(".dimmerLight").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
 	
