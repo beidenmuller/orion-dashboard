@@ -40,7 +40,11 @@ function setIcons(target){
 	$(target).find(".switch").each(function(index,item){ renderSwitch($(item), false, "ON", "OFF"); });
 	$(target).find(".light").each(function(index,item){ renderSwitch($(item), false, "ON", "OFF"); });
 	
-	$(target).find(".dimmerLight").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
+	$(target).find(".dimmer, .dimmerLight").each(function(index,item){ renderSlider($(item)); });
+	$(target).find(".music").each(function(index,item){ renderSlider($(item)); });
+	
+	//$(target).find(".dimmerLight").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
+	
 	$(target).find(".themeLight").append("<div class='icon cmd'>" + icons.themeLight.on + icons.themeLight.off + "</div>");
 	$(target).find(".lock").append("<div class='icon cmd'>" + icons.lock.locked + icons.lock.unlocked + "</div>");
 	$(target).find(".motion").append("<div class='icon'>" + icons.motion.active + icons.motion.inactive + "</div>");
@@ -48,8 +52,7 @@ function setIcons(target){
 	$(target).find(".presence").append("<div class='icon'>" + icons.presence.present + icons.presence.notPresent + "</div>");
 	$(target).find(".contact").append("<div class='icon'>" + icons.contact.open + icons.contact.closed + "</div>");
 	$(target).find(".water").append("<div class='icon'>" + icons.water.dry + icons.water.wet + "</div>");
-	$(target).find(".dimmer, .dimmerLight").each(function(index,item){ renderSlider($(item)); });
-	$(target).find(".music").each(function(index,item){ renderSlider($(item)); });
+	
 	$(target).find(".momentary").append("<div class='icon'>" + icons.momentary + "</div>");
 	$(target).find(".camera").append("<div class='icon cmd'>" + icons.camera + "</div>");
 	$(target).find(".refresh").append("<div class='icon'>" + icons.refresh + "</div>");
