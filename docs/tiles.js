@@ -127,7 +127,7 @@ function renderSwitch(t, v, onVal, offVal){
 	
 	sel.append(optOn);
 	sel.append(optOff);
-	
+	console.log(t.attr("data-value"));
 	sel.val(t.attr("data-value"));
 	
 	container.append(sel);
@@ -268,7 +268,14 @@ function updateTile(t){
 					.attr("data-active",t.active);
 					
 				//TODO: check for switch
-				e.find(".switch-container select").val(t.value);
+				var switch = e.find(".switch-container select");
+				
+				if(switch.length){
+					switch.off("change")
+					.val(t.value)
+					.flipswitch("refresh")
+					.on("change", processCmdAction);
+				}
 			}
 		} 
 	} else if("mode" == t.tile){
@@ -586,12 +593,14 @@ function initDashboard(target){
 
 function processCmdAction(e,data){
 	var el = jQuery(e.delegateTarget);
-	console.log("process action");
+	
 	var t = el.closest(".tile");
 	
 	if(el.hasClass("icon")){
 		animateClick(t);
 		t.toggleClass("active");
+	} else {
+		spinner(t);
 	}
 	
 	if(t.hasAttr("data-level")){
