@@ -35,10 +35,10 @@ function spinner(t){
 
 function setIcons(target){	
 	//$(target).find(".dimmer").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
-	//$(target).find(".light").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
+	$(target).find(".light").append("<div class='icon cmd'>" + icons.light.on + icons.light.off + "</div>");
 	
 	$(target).find(".switch").each(function(){ renderSwitch($(this), false, "on", "off"); });
-	$(target).find(".light").each(function(){ renderSwitch($(this), false, "on", "off"); });
+	//$(target).find(".light").each(function(){ renderSwitch($(this), false, "on", "off"); });
 	
 	$(target).find(".dimmer, .dimmerLight").each(function(){ renderSlider($(this), true); });
 	$(target).find(".music").each(function(){ renderSlider($(item)); });
