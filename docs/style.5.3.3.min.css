@@ -66,7 +66,7 @@
 
 .switch-container{ text-align: center; }
 
-.ui-flipswitch{ font-size: 18px; }
+.ui-flipswitch{ font-size: 18px; width: 3.875em; }
 
 .contact{background-color:#e91e63}
 
@@ -312,7 +312,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles .tile i {/*margin-right: 5px;*/ border-radius: 2px; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);}
 
-.theme-st .tiles .tile i.active {box-shadow: 0 2px 2px 0 rgba(27, 190, 255, 0.9), 0 1px 5px 0 rgba(27, 190, 255, 0.9), 0 3px 1px -2px rgba(27, 190, 255, 0.9);}
+.theme-st .tiles .tile i.active {/*box-shadow: 0 2px 2px 0 rgba(27, 190, 255, 0.9), 0 1px 5px 0 rgba(27, 190, 255, 0.9), 0 3px 1px -2px rgba(27, 190, 255, 0.9);*/}
 
 .theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:.2em;}
 
