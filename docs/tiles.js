@@ -43,7 +43,7 @@ function setIcons(target){
 	$(target).find(".dimmer, .dimmerLight").each(function(){ renderSlider($(this), true); });
 	$(target).find(".music").each(function(){ renderSlider($(item)); });
 	
-	$(target).find(".dimmerLight").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
+	$(target).find(".dimmer, .dimmerLight").append("<div class='icon cmd'>" + icons.dimmer.on + icons.dimmer.off + "</div>");
 	
 	$(target).find(".themeLight").append("<div class='icon cmd'>" + icons.themeLight.on + icons.themeLight.off + "</div>");
 	$(target).find(".lock").append("<div class='icon cmd'>" + icons.lock.locked + icons.lock.unlocked + "</div>");
