@@ -163,6 +163,25 @@
 
 .icon span.text{font-size:.75em;margin-right:15px}
 
+.tile.video .icon {
+	margin-top: initial;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+	height: 100%;
+}
+
+.tile.video .title {
+	top: 0;
+	text-align: left;
+	font-weight: bold;
+	color: #1BBEFF;
+}
+
 .footer{bottom:5px;font-size:11px;left:5px;position:absolute;line-height:10px}
 
 .footer.right{right:5px;text-align:right}
