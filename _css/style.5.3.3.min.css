@@ -125,6 +125,25 @@
 
 .icon,.icon *{text-shadow:0 4px 3px rgba(0,0,0,.4),0 8px 13px rgba(0,0,0,.1),0 18px 23px rgba(0,0,0,.1)}
 
+.tile.video .icon {
+	margin-top: initial;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+	height: 100%;
+}
+
+.tile.video .title {
+	top: 0;
+	text-align: left;
+	font-weight: bold;
+	color: #1BBEFF;
+}
+
 .thermostatCool .icon.up,.thermostatHeat .icon.up{margin-top:-3em;font-size:2em;line-height:2em}
 
 .thermostatCool .icon.down,.thermostatHeat .icon.down{margin-top:1em;font-size:2em;line-height:2em}
@@ -277,6 +296,7 @@ body.theme-st{background-color:#1BBEFF;}
 .theme-st .tiles .tile i {margin-right: 5px;}
 
 .theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:.2em;}
+
 
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
