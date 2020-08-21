@@ -2,24 +2,6 @@
 
 .tile{background-color:grey}
 
-.tile.sz-small, .tile.sz-{ width: 105px; height: 105px; }
-
-.tile.sz-medium{ width: 120px; height: 120px; }
-
-.tile.sz-large{ width: 150px; height: 150px; }
-
-.tile.sz-x-large{ width: 200px; height: 200px; }
-
-.tile.sz-small.w2{ width: 210px; }
-.tile.sz-medium.w2{ width: 240px; }
-.tile.sz-large.w2{ width: 300px; }
-.tile.sz-x-large.w2{ width: 400px; }
-
-.tile.sz-small.h2{ height: 210px; }
-.tile.sz-medium.h2{ height: 240px; }
-.tile.sz-large.h2{ height: 300px; }
-.tile.sz-x-large.h2{ height: 400px; }
-
 .weather{background-color:#a20025}
 
 .clock{background-color:#607d8b}
@@ -32,41 +14,7 @@
 
 .dimmer,.dimmerLight,.light,.momentary,.switch,.themeLight{background-color:#4caf50}
 
-.dimmer .icon.cmd, .dimmerLight .icon.cmd { top: auto !important; bottom: 1.5% !important; font-size: 2em !important; }
-
-.dimmer .title, .dimmerLight .title { top: 2% !important; bottom: auto !important; }
-
-.tile.sz-.dimmer .ui-slider, .tile.sz-.dimmerLight .ui-slider, .tile.sz-small.dimmer .ui-slider, .tile.sz-small.dimmerLight .ui-slider { margin-bottom: 178px !important; }
-.tile.sz-medium.dimmer .ui-slider, .tile.sz-medium.dimmerLight .ui-slider { margin-bottom: 210px !important; }
-.tile.sz-large.dimmer .ui-slider, .tile.sz-large.dimmerLight .ui-slider { margin-bottom: 255px !important; }
-.tile.sz-x-large.dimmer .ui-slider, .tile.sz-x-large.dimmerLight .ui-slider { margin-bottom: 360px !important; }
-
-.full-width-slider.horz .ui-slider .ui-slider-track{margin:0!important}
-
-.full-width-slider{position:absolute;bottom:-2px;width:100%}
-
-.full-width-slider.vert{width: auto; left: 50%;}
-
-.full-width-slider input{display:none}
-
-.ui-slider-track.ui-mini .ui-slider-handle{height:20px;width:20px;margin:-11px 0 0 -11px}
-
-.ui-slider.ui-mini{padding:0 10px 0 12px}
-
-.full-width-slider.vert .ui-slider.ui-mini{ padding:0px; }
-
-.full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; height: 200px; }
-
-.tile.sz- .full-width-slider.vert .ui-slider .ui-slider-track, .tile.sz-small .full-width-slider.vert .ui-slider .ui-slider-track{ height: 141px !important; }
-.tile.sz-medium .full-width-slider.vert .ui-slider .ui-slider-track{ height: 161px !important; }
-.tile.sz-large .full-width-slider.vert .ui-slider .ui-slider-track{ height: 201px !important; }
-.tile.sz-x-large .full-width-slider.vert .ui-slider .ui-slider-track{ height: 268px !important; }
-
-.full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
-
-.switch-container{ text-align: center; }
-
-.ui-flipswitch{ font-size: 18px; }
+.dimmer,.dimmerLight{ height:315px; }
 
 .contact{background-color:#e91e63}
 
@@ -177,6 +125,25 @@
 
 .icon,.icon *{text-shadow:0 4px 3px rgba(0,0,0,.4),0 8px 13px rgba(0,0,0,.1),0 18px 23px rgba(0,0,0,.1)}
 
+.tile.video .icon {
+	margin-top: initial;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+	height: 100%;
+}
+
+.tile.video .title {
+	top: 0;
+	text-align: left;
+	font-weight: bold;
+	color: #1BBEFF;
+}
+
 .thermostatCool .icon.up,.thermostatHeat .icon.up{margin-top:-3em;font-size:2em;line-height:2em}
 
 .thermostatCool .icon.down,.thermostatHeat .icon.down{margin-top:1em;font-size:2em;line-height:2em}
@@ -199,6 +166,24 @@
 
 /*div.ui-slider{height:21px}*/
 
+.full-width-slider.horz .ui-slider .ui-slider-track{margin:0!important}
+
+.full-width-slider{position:absolute;bottom:-2px;width:100%}
+
+.full-width-slider.vert{width: auto; left: 50%;}
+
+.full-width-slider input{display:none}
+
+.ui-slider-track.ui-mini .ui-slider-handle{height:20px;width:20px;margin:-11px 0 0 -11px}
+
+.ui-slider.ui-mini{padding:0 10px 0 12px}
+
+.full-width-slider.vert .ui-slider.ui-mini{ padding:0px; }
+
+.full-width-slider.vert .ui-slider .ui-slider-track{ padding:0px; margin: 0 0 0px -10px !important; }
+
+.full-width-slider.vert .ui-slider .ui-slider-handle{ margin-left: 0px !important; }
+
 .batt{content:"";background-image:url(battery.png);background-size:16px 16px;background-repeat:no-repeat;background-position:center center}
 
 .batt:before{content:"\0000a0"}
@@ -211,9 +196,7 @@
 
 .music.active .play,.music.muted .unmuted,.music:not(.active) .pause,.music:not(.muted) .muted{display:none}
 
-.music i{cursor:pointer}
-
-ul{list-style-type:none;padding-left:0}.item{cursor:grab;padding:5px;margin:8px;border-radius:2px;font-size:16pt}
+.music i{cursor:pointer}ul{list-style-type:none;padding-left:0}.item{cursor:grab;padding:5px;margin:8px;border-radius:2px;font-size:16pt}
 
 .list{width:300px;margin:0 auto}
 
@@ -231,7 +214,7 @@ ul{list-style-type:none;padding-left:0}.item{cursor:grab;padding:5px;margin:8px;
 
 .history-list{margin-top:50px}
 
-sup{vertical-align: super;font-size: 40%;}
+sup{vertical-align: super;font-size: smaller;}
 
 .theme-default{color:#fff}
 
@@ -279,7 +262,7 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .list.history-list .tile, .theme-st .list.sort-ui .tile{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
-.theme-st .list.history-list .tile i, .theme-st .list.sort-ui .tile i {/*margin-right: 5px;*/clear:both;}
+.theme-st .list.history-list .tile i, .theme-st .list.sort-ui .tile i {margin-right: 5px;clear:both;}
 
 .theme-st .list.history-list .ui-slider-handle.ui-btn.ui-shadow, .theme-st .list.sort-ui .ui-slider-handle.ui-btn.ui-shadow{
 	background-color: #fff;
@@ -300,21 +283,20 @@ body.theme-st{background-color:#1BBEFF;}
 
 .theme-st .tiles {background-color:#F7F7F7;margin:0 auto;border-radius:4px;padding:5px;}
 
-.theme-st .tiles .tile{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:2px;box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.19);}
+.theme-st .tiles .tile{background-color: rgba(255, 255, 255, 1);color:#B1B1B1;border-radius:4px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 
-.theme-st .tiles .tile .title{position: relative;top: 60%;text-align: center;color: #777777;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 65%;padding-right: 7px;}
+.theme-st .tiles .tile .title{position: relative;top: 60%;text-align: center;color: #777777;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-size: 75%;padding-right: 7px;}
 
 .theme-st .tiles .tile .title2{font-size:12px;line-height:1em;height:2em;overflow:ellipsis;position:absolute;text-align:center;top:4px;left:0px;width:100%;}
 
 .theme-st .tiles .tile.weather .title{font-size:12px;top:4px;left:0px;width:100%;}
 
-.theme-st .tiles .tile.weather .title2{top: 60%;font-size: 65%;padding-right: 7px;}
+.theme-st .tiles .tile.weather .title2{top: 60%;font-size: 75%;padding-right: 7px;}
 
-.theme-st .tiles .tile i {/*margin-right: 5px;*/ border-radius: 2px; /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);*/}
+.theme-st .tiles .tile i {margin-right: 5px;}
 
-.theme-st .tiles .tile i.active {/*box-shadow: 0 2px 2px 0 rgba(27, 190, 255, 0.9), 0 1px 5px 0 rgba(27, 190, 255, 0.9), 0 3px 1px -2px rgba(27, 190, 255, 0.9);*/}
+.theme-st .tiles .tile .icon {font-size: 3em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:.2em;}
 
-.theme-st .tiles .tile .icon {font-size: 2.5em;width: 100%;position: absolute;text-align: center;white-space: nowrap;top:.2em;}
 
 .theme-st .tiles .ui-slider-handle.ui-btn.ui-shadow{background-color:#fff}
 
@@ -359,24 +341,6 @@ body.theme-st{background-color:#1BBEFF;}
 .theme-st .ui-dialog-contain .navigate-back{color:#777;cursor: pointer;}
 
 .theme-st .ui-dialog-contain  .content-title{background-color: ##DDD;color: #333;}
-
-.theme-st .tiles .tile .full-width-slider.vert .ui-slider-bg {
-	background-color: #1BBEFF; 
-	background-image: linear-gradient(top, #1BBEFF 0%, #059 100%); 
-	background-image: -o-linear-gradient(top, #1BBEFF 0%, #059 100%); 
-	background-image: -moz-linear-gradient(top, #1BBEFF 0%, #059 100%); 
-	background-image: -webkit-linear-gradient(top, #1BBEFF 0%, #059 100%); 
-	background-image: -ms-linear-gradient(top, #1BBEFF 0%, #059 100%);
-}
-
-.theme-st .tiles .tile .full-width-slider.horz .ui-slider-bg {
-	background-color: #1BBEFF; 
-	background-image: linear-gradient(left, #1BBEFF 0%, #059 100%); 
-	background-image: -o-linear-gradient(left, #1BBEFF 0%, #059 100%); 
-	background-image: -moz-linear-gradient(left, #1BBEFF 0%, #059 100%); 
-	background-image: -webkit-linear-gradient(left, #1BBEFF 0%, #059 100%); 
-	background-image: -ms-linear-gradient(left, #1BBEFF 0%, #059 100%);
-}
 
 .device-detail .tiles{text-align: left;}
 
